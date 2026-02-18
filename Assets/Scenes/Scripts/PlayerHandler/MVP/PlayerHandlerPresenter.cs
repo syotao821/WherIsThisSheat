@@ -25,4 +25,8 @@ public class PlayerHandlerPresenter
 
     }
 
+
+    public PlayerHandlerModel GetPlayerHandlerModel() => _playerHandlerModel;
+    public PlayerHandlerView GetPlayerHandlerView() => _playerHandlerView;
+
 }
