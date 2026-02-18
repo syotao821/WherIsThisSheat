@@ -19,7 +19,7 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
     /// </summary>
     public void Entry()
     {
-        UnityEngine.Debug.Log(_probider.GetPlayerHandlerPresenter().GetPlayerHandlerModel().PlayerHandleTransform.position);
+
     }
 
 
@@ -28,8 +28,10 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
     /// </summary>
     public void Update()
     {
-       
-
+        if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
+        {
+            UnityEngine.Debug.Log(_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetTransForm());
+        }
     }
 
 

@@ -28,7 +28,6 @@ public class PlayerHnadlerTalkingToAIState : IPlayerHandlerState
     public void Update()
     {
 
-
     }
 
 

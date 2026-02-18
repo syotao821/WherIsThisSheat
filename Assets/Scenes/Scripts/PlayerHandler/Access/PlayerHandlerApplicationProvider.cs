@@ -1,14 +1,16 @@
+using UnityEngine;
+
 public class PlayerHandlerApplicationProvider
 {
-    ApplicationIntegration applicationIntegration;
+    PlayerHandlerApplicationIntegration applicationIntegration;
 
-    public PlayerHandlerApplicationProvider()
+    public PlayerHandlerApplicationProvider(GameObject playerHadlerObj)
     {
-        applicationIntegration=new ApplicationIntegration();
+        applicationIntegration=new PlayerHandlerApplicationIntegration(playerHadlerObj);
     }
 
 
-    public ApplicationIntegration GetApplication()
+    public PlayerHandlerApplicationIntegration GetApplication()
     {
         return applicationIntegration;
     }

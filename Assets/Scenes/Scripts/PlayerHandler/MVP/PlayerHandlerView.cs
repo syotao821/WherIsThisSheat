@@ -6,11 +6,11 @@ using UnityEngine;
 public struct PlayerHandlerView
 {
     [Header("マウスカーソルスプライト")]
-    [SerializeField] SpriteRenderer _handSprite;
+    [SerializeField] Sprite _handSprite;
     
     /// <summary>
     /// マウスカーソルのスプライト
     /// </summary>
-    public SpriteRenderer HandSprite { get => _handSprite; private set => _handSprite = value; }
+    public Sprite HandSprite { get => _handSprite; private set => _handSprite = value; }
 
 }
