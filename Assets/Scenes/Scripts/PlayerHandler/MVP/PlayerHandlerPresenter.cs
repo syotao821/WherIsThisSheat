@@ -1,28 +1,25 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class PlayerHandlerPresenter 
 {
 
     PlayerHandlerModel _playerHandlerModel;
     PlayerHandlerView _playerHandlerView;
 
-
     /// <summary>
     /// 初期化
     /// </summary>
     /// <param name="_playerHandlerView"></param>
-    public PlayerHandlerPresenter(PlayerHandlerView _playerHandlerView, GameObject thisObj)
+    public PlayerHandlerPresenter(PlayerHandlerView _playerHandlerView,Image _playerHandlerImage)
     {
         this._playerHandlerModel =new PlayerHandlerModel();
-        this._playerHandlerView = new PlayerHandlerView();
         this._playerHandlerView = _playerHandlerView;
-        ComponentSet(thisObj);
+        SetSprite(_playerHandlerImage);
     }
 
-    void ComponentSet(GameObject thisObj)
+
+    void SetSprite(Image _playerHandlerImage)
     {
-        _playerHandlerModel.PlayerHandleTransform=thisObj.GetComponent<Transform>();
-        _playerHandlerModel.Animator = _playerHandlerModel.PlayerHandleTransform.GetComponent<Animator>();
-
+        _playerHandlerImage.sprite = _playerHandlerView.HandSprite;
     }
-
 }

@@ -1,0 +1,44 @@
+ステートの増やし方
+--------------------------------------------------------------------------------------------------
+
+PlayerHandlerStateContext　Init関数
+1
+
+Dictionary<PLAYERHANDLERSTATE, IPlayerHandlerState> table = new()
+        {
+            //            変更　　　変更
+            { PLAYERHANDLERSTATE.SEARCHINGAI, new PlayerHnadlerSearchingAIState(player) },
+            { PLAYERHANDLERSTATE.HOLDINGAI, new PlayerHnadlerHoldingAIState(player) },
+            { PLAYERHANDLERSTATE.CARRYINGAI, new PlayerHnadlerCarryingAIState(player) },
+            { PLAYERHANDLERSTATE.TALKINGTOAI, new PlayerHnadlerTalkingToAIState(player) },
+
+            ・・・と追加する
+           
+        };
+
+2
+public enum PLAYERHANDLERSTATE　にステートを追加
+
+
+
+3
+IPlayerHandlerState　を継承したクラスを作成しカプセル化の操作で関数を作成
+
+
+4
+PlayerHandlerに public 
+
+void ステート名() => SetState(PLAYERHANDLERSTATE.ステート);　を作成
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
+
+
+ステート変更法
+
+1
+各種AIStateクラスで_playerHandler.ステート関数と呼べば指定したステートになる
+
+
+
+
