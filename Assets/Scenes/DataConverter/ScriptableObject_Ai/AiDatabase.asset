@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb22316608b24449ac999ada4f87071, type: 3}
+  m_Name: AiDatabase
+  m_EditorClassIdentifier: 
+  aiDataArray:
+  - _id: 0
+    _name: 0
+    _viewModelName: M_Ai01
+    _pairSeatId: 0
+    _viewSpriteName: S_Si01
+    _informationStringList:
+    - 0
+    - 0
+    ViewModel: {fileID: 8140025964900051957, guid: 02fd1df8fccfb5148b0dea9ad8b350d6, type: 3}
+    ViewSprite: {fileID: 21300000, guid: e2128d9ecc046f346aa6c5b753b94e90, type: 3}
