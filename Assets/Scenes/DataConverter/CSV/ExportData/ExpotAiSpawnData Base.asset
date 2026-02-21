@@ -9,15 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb22316608b24449ac999ada4f87071, type: 3}
-  m_Name: ExpotData
+  m_Script: {fileID: 11500000, guid: 9e3228f0e0ebcbd48be058b90fe7321a, type: 3}
+  m_Name: ExpotAiSpawnData Base
   m_EditorClassIdentifier: 
-  aiDataArray:
-  - _id: 0
-    _name: 
-    _viewModelName: 
-    _pairSeatId: 0
-    _viewSpriteName: 
-    _informationStringList:
-    - 
-    - 
+  aiSpawnDataArray: []
