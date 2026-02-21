@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+Id,Name,PairSeatId,ViewModelKey,ViewSpriteKey,InformationStrings
+0,0,0,M_Ai00,S_Ai00,0|0
+=======
+﻿Id,Name,PairSeatId,ViewModelKey,ViewSpriteKey,InformationStrings
+0,,0,M_Ai01,S_Ai01,|
+>>>>>>> WheaIsThisSheat/キャラクターモデル等作成
