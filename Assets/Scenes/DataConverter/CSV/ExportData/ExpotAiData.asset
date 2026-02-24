@@ -10,23 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eb22316608b24449ac999ada4f87071, type: 3}
-  m_Name: ExpotData
+  m_Name: ExpotAiData
   m_EditorClassIdentifier: 
-<<<<<<<< HEAD:Assets/Scenes/DataConverter/ScriptableObject_SpawnAi/AiSpawnDatabase.asset
-  aiSpawnDataArray:
-  - _groupId: 0
-    spawnPos: {x: 0, y: 0, z: 0}
-    _standardAiList:
-    - _standardId: 0
-      _spawnOffset: {x: 0, y: 0, z: 0}
-========
   aiDataArray:
   - _id: 0
     _name: 
-    _viewModelName: 
+    _viewModelName: M_Ai01
     _pairSeatId: 0
-    _viewSpriteName: 
+    _viewSpriteName: S_Ai01
     _informationStringList:
     - 
     - 
->>>>>>>> WheaIsThisSheat/井町_レイアウト修正:Assets/Scenes/DataConverter/CSV/ExportData/ExpotData.asset

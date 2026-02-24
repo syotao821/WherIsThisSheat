@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 934154169739826879}
   - component: {fileID: 8569414607957015603}
   m_Layer: 0
-  m_Name: ExpotData
+  m_Name: AiExpotData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c588b4ae5243314cb2f06cabd319fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiDatabase: {fileID: 11400000, guid: f2a5823f840fc4741a149f3a6b801c37, type: 2}
+  aiDatabase: {fileID: 11400000, guid: c3802882631655e44ab2b472a46974e5, type: 2}

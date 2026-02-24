@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: AiLocal Group
+  m_Name: Default Local Group
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: fee415aba20f4664bb9f0924519ed687
+  m_GUID: 58ad84c0bb38d6b47acffde6d50502ab
   m_SerializeEntries:
-  - m_GUID: 4ee2b70d19f0a914aad8b6746f71ece0
+  - m_GUID: 02fd1df8fccfb5148b0dea9ad8b350d6
     m_Address: M_Ai00
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 78b84fa0d7adac649bfe749805fcaa7c
-<<<<<<<<< Temporary merge branch 1
+  - m_GUID: e2128d9ecc046f346aa6c5b753b94e90
+    m_Address: S_Ai00
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
