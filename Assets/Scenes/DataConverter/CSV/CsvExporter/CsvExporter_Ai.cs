@@ -30,7 +30,7 @@ public class CsvExporter_Ai : MonoBehaviour
         StringBuilder sb = new StringBuilder();
 
         // Importerと完全一致ヘッダー
-        sb.AppendLine("Id,Name,PairSeatId,ViewModelKey,ViewSpriteKey,InformationStrings");
+        sb.AppendLine("Id,Name,PairSeatId,ViewModelKey,ViewSpriteKey,InformationStrings,InitialSize");
 
         foreach (var ai in aiDatabase.aiDataArray)
         {
@@ -45,7 +45,6 @@ public class CsvExporter_Ai : MonoBehaviour
             {
                 sb.Append(string.Join("|", ai.InformationStringList));
             }
-
             sb.AppendLine();
         }
 

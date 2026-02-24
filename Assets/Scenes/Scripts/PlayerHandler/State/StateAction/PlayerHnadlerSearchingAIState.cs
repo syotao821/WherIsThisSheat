@@ -30,7 +30,7 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
     {
         if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
         {
-            UnityEngine.Debug.Log(_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetTransForm());
+
         }
     }
 

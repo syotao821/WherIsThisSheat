@@ -15,7 +15,6 @@ public class GameInit : MonoBehaviour
         foreach (IGameInit obj in _initObjects)
         {
             obj.GameInit();
-            Debug.Log(obj);
         }
     }
 }

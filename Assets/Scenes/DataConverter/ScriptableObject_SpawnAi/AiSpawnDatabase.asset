@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3228f0e0ebcbd48be058b90fe7321a, type: 3}
   m_Name: AiSpawnDatabase
   m_EditorClassIdentifier: 
-  aiSpawnDataArray: []
+  aiSpawnDataArray:
+  - _groupId: 0
+    spawnPos: {x: 0, y: 0, z: 0}
+    _standardAiList:
+    - _standardId: 0
+      _spawnOffset: {x: 0, y: 0, z: 0}

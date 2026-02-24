@@ -22,6 +22,7 @@ public struct AiData
     [Header("詳細情報")]
     [SerializeField] List<string> _informationStringList;
 
+ 
     // ランタイム注入
     GameObject _viewModel;
     Sprite _viewSprite;
@@ -35,6 +36,6 @@ public struct AiData
     public string ViewSpriteNmae { get => _viewSpriteName; set => _viewSpriteName = value; }
     public List<string> InformationStringList { get => _informationStringList; set => _informationStringList = value; }
 
-    public GameObject ViewModel /*{ get => _viewModel; set => _viewModel = value; }*/;
-    public Sprite ViewSprite ;
+    public GameObject ViewModel { get => _viewModel; set => _viewModel = value; }
+    public Sprite ViewSprite { get => _viewSprite; set => _viewSprite = value; }
 }

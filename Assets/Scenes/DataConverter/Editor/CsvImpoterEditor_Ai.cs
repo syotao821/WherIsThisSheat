@@ -53,12 +53,12 @@ public class CsvImpoterEditor_Ai : Editor
 
             string infoCell = columns[column++];
 
-            ai.InformationStringList =
-                string.IsNullOrEmpty(infoCell)
-                ? new List<string>()
-                : new List<string>(infoCell.Split('|'));
+            ai.InformationStringList = string.IsNullOrEmpty(infoCell)? new List<string>() : new List<string>(infoCell.Split('|'));
 
             aiList.Add(ai);
+
+
+
         }
 
         AiDataBase db = ScriptableObject.CreateInstance<AiDataBase>();
