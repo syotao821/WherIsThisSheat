@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
@@ -23,7 +24,6 @@ public class CsvExporter_AiSpawn : MonoBehaviour
             return;
         }
 
-        // フォルダ生成
         string dir = Path.GetDirectoryName(filePath);
         if (!Directory.Exists(dir))
         {
@@ -32,19 +32,23 @@ public class CsvExporter_AiSpawn : MonoBehaviour
 
         StringBuilder sb = new StringBuilder();
 
-        // ヘッダー
-        sb.AppendLine("GroupId,SpawnPos,StandardAiList");
+        // Importer互換ヘッダー
+        sb.AppendLine("GroupId,PosX,PosY,PosZ,StandardIdList,OffsetList");
 
         foreach (var data in spawnDatabase.aiSpawnDataArray)
         {
-            // GroupId
             sb.Append(data.GroupId).Append(",");
 
-            // SpawnPos → x|y|z
-            sb.Append(VectorToString(data.SpawnPos)).Append(",");
+            // --- Pos ---
+            sb.Append(data.SpawnPos.x).Append(",");
+            sb.Append(data.SpawnPos.y).Append(",");
+            sb.Append(data.SpawnPos.z).Append(",");
 
-            // StandardAiList
-            sb.Append(StandardAiListToString(data.StandardAiList));
+            // --- ID一覧 ---
+            sb.Append(GetIdList(data.StandardAiList)).Append(",");
+
+            // --- Offset一覧 ---
+            sb.Append(GetOffsetList(data.StandardAiList));
 
             sb.AppendLine();
         }
@@ -54,17 +58,9 @@ public class CsvExporter_AiSpawn : MonoBehaviour
     }
 
     // =========================
-    // Vector3 → "x|y|z"
-    // =========================
-    string VectorToString(Vector3 v)
-    {
-        return $"{v.x}|{v.y}|{v.z}";
-    }
-
-    // =========================
     // List<StandardAi> → 文字列
     // =========================
-    string StandardAiListToString(System.Collections.Generic.List<StandardAi> list)
+    string GetIdList(List<StandardAi> list)
     {
         if (list == null || list.Count == 0) return "";
 
@@ -72,14 +68,27 @@ public class CsvExporter_AiSpawn : MonoBehaviour
 
         for (int i = 0; i < list.Count; i++)
         {
-            var ai = list[i];
+            sb.Append(list[i].StandardId);
+            if (i < list.Count - 1)
+                sb.Append("|");
+        }
 
-            sb.Append(ai.StandardId);
-            sb.Append(":");
-            sb.Append(VectorToString(ai.SpawnOffset));
+        return sb.ToString();
+    }
+
+    string GetOffsetList(List<StandardAi> list)
+    {
+        if (list == null || list.Count == 0) return "";
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            Vector3 v = list[i].SpawnOffset;
+            sb.Append($"{v.x}:{v.y}:{v.z}");
 
             if (i < list.Count - 1)
-                sb.Append(";");
+                sb.Append("|");
         }
 
         return sb.ToString();

@@ -94,7 +94,7 @@ public class CsvImpoterEditor_AISpawn : Editor
         AiSpawnDataBase db = ScriptableObject.CreateInstance<AiSpawnDataBase>();
         db.aiSpawnDataArray = spawnList.ToArray();
 
-        string path = "Assets/Scenes/DataConverter/ScriptableObject_Ai/AiSpawnDatabase.asset";
+        string path = "Assets/Scenes/DataConverter/ScriptableObject_SpawnAi/AiSpawnDatabase.asset";
         AssetDatabase.CreateAsset(db, path);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
