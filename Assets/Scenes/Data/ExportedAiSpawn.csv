@@ -1,2 +1,1 @@
-GroupId,PosX,PosY,PosZ,StandardIdList,OffsetList
-0,0,0,0,0,0:00:00
+GroupId,SpawnPos,StandardAiList

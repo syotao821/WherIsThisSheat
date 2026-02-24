@@ -14,10 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiDataArray:
   - _id: 0
-    _name: 0
-    _viewModelName: M_Ai00
-    _pairSeatId: 0
-    _viewSpriteName: S_Ai00
     _informationStringList:
     - 0
     - 0

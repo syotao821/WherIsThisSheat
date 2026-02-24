@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 905b6ae27b4565647af2dbd50cbedbd8, type: 3}
-  m_Name: CrateAiSpawnData
+  m_Script: {fileID: 11500000, guid: 9e3228f0e0ebcbd48be058b90fe7321a, type: 3}
+  m_Name: AiSpawnDatabase
   m_EditorClassIdentifier: 
-  csvFile: {fileID: 4900000, guid: 2ffeeb5e8f0ffcf4c8b914bd283acc04, type: 3}
+  aiSpawnDataArray: []
