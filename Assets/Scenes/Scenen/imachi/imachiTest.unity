@@ -1991,6 +1991,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BusStopSign
       objectReference: {fileID: 0}
+    - target: {fileID: 1890357241281214480, guid: e266d6ed9b3709f41b0949f2a74df43d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5188c7492ef51d143a7128aa9700788a, type: 2}
     - target: {fileID: 8492790690523238427, guid: e266d6ed9b3709f41b0949f2a74df43d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
