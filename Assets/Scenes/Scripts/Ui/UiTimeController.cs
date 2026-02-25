@@ -10,10 +10,12 @@ namespace Assets.Scenes.Scripts.Ui
 		float limitTime;//3分なら3
 		float currentTime;
 		Text timeText;
+		Image timerImage;
 
 		private void Start()
 		{
-			timeText = GetComponent<Text>();
+			timerImage = transform.GetChild(1).GetComponent<Image>();
+			timeText = transform.GetChild(2).GetComponent<Text>();
 		}
 
 		void Update()
@@ -21,6 +23,7 @@ namespace Assets.Scenes.Scripts.Ui
 			currentTime -= Time.deltaTime;
 			TimeSpan span = new TimeSpan(0, 0, (int)currentTime);
 			timeText.text = span.ToString(@"mm\:ss");
+			timerImage.fillAmount = Mathf.InverseLerp(limitTime * 60,0, currentTime);
 
 			if (currentTime <= 0)
 			{
