@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
@@ -10,9 +11,10 @@ public class BusUiSlider : MonoBehaviour
     float currentScore;
     Slider scoreSlider;
     Text scoreText;
+	bool isScoreOver = false;//目標金額越えたかどうか
+	public event Action onScoreOver;
 
-
-	private void Start()
+	public void SetStart()
 	{
 		scoreSlider = GetComponent<Slider>();
 		scoreText = transform.GetChild(4).transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Text>();
@@ -20,6 +22,7 @@ public class BusUiSlider : MonoBehaviour
 		scoreSlider.value = 0;
 		UpDateBusSlider(0);
 
+		//sliderが動くたびに実行される
 		scoreSlider.onValueChanged.AddListener(UpDateBusSlider);
 	}
 
@@ -30,6 +33,7 @@ public class BusUiSlider : MonoBehaviour
 	public void SetClearScore(int _clearScore)
     {
 		clearScore = _clearScore;
+		isScoreOver = false;
 	}
 
 	/// <summary>
@@ -47,6 +51,8 @@ public class BusUiSlider : MonoBehaviour
 	/// </summary>
     public void UpDateBusSlider(float _value)
     {
+		if (isScoreOver) return;
+
 		//スコア更新
 		currentScore = Mathf.Lerp(0, clearScore, scoreSlider.value);
 		scoreText.text = currentScore.ToString("C");//円表示にしてくれる
@@ -81,11 +87,12 @@ public class BusUiSlider : MonoBehaviour
 	/// <returns></returns>
 	public bool CheckBusSilider()
     {
-        if (currentScore >= clearScore)
+		if (currentScore >= clearScore)
         {
             //上限まで行ったらそれ以上増やさない
 			currentScore = clearScore;
-			Debug.Log("クリア");
+			isScoreOver = true;
+			onScoreOver?.Invoke();
 			return true;
         }
 

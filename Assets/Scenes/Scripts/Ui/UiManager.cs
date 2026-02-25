@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scenes.Scripts.Ui
 {
@@ -7,15 +6,36 @@ namespace Assets.Scenes.Scripts.Ui
 	{
 		public BusUiSlider busUiSlider;
 		public UiTimeController timeController;
-
+		[SerializeField,Header("目標金額")]int clearScoreValue;
+		[SerializeField,Header("制限時間")]float timeLimitValue;
+		bool isClear = false;
+		bool isGameOver = false;
 
 		private void Start()
 		{
+			//UI関係の初期化
+			busUiSlider.SetStart();
+			timeController.SetStart();
+
+			//目標金額に到達すると呼ばれる
+			busUiSlider.onScoreOver += () =>
+			{
+				isClear = true;
+				Debug.Log("クリア");
+			};
+
+			//残り時間が０になると呼ばれる
+			timeController.OnTimeOver += () =>
+			{
+				isGameOver = true;
+				Debug.Log("タイムオーバー");
+			};
+
 			//目標金額を設定
-			busUiSlider.SetClearScore(30000);
+			busUiSlider.SetClearScore(clearScoreValue);
 
 			//残り時間を設定
-			timeController.SetTimeLimit(1);
+			timeController.SetTimeLimit(timeLimitValue);
 		}
 	}
 }

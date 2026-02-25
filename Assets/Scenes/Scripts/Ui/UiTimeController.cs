@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +10,10 @@ namespace Assets.Scenes.Scripts.Ui
 		float currentTime;
 		Text timeText;
 		Image timerImage;
+		bool isTimeOver = false;
+		public event Action OnTimeOver;
 
-		private void Start()
+		public void SetStart()
 		{
 			timerImage = transform.GetChild(1).GetComponent<Image>();
 			timeText = transform.GetChild(2).GetComponent<Text>();
@@ -20,6 +21,8 @@ namespace Assets.Scenes.Scripts.Ui
 
 		void Update()
 		{
+			if (isTimeOver) return;
+
 			currentTime -= Time.deltaTime;
 			TimeSpan span = new TimeSpan(0, 0, (int)currentTime);
 			timeText.text = span.ToString(@"mm\:ss");
@@ -28,7 +31,8 @@ namespace Assets.Scenes.Scripts.Ui
 			if (currentTime <= 0)
 			{
 				// 0秒になったときの処理
-				Debug.Log("タイムオーバー");
+				isTimeOver = true;
+				OnTimeOver?.Invoke();
 			}
 		}
 
