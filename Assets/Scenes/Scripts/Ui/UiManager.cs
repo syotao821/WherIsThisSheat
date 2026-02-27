@@ -6,6 +6,7 @@ namespace Assets.Scenes.Scripts.Ui
 	{
 		public BusUiSlider busUiSlider;
 		public UiTimeController timeController;
+		public BusController busController;
 		[SerializeField,Header("目標金額")]int clearScoreValue;
 		[SerializeField,Header("制限時間")]float timeLimitValue;
 		bool isClear = false;
@@ -16,6 +17,7 @@ namespace Assets.Scenes.Scripts.Ui
 			//UI関係の初期化
 			busUiSlider.SetStart();
 			timeController.SetStart();
+			busController.SetStart();
 
 			//目標金額に到達すると呼ばれる
 			busUiSlider.onScoreOver += () =>
@@ -36,6 +38,12 @@ namespace Assets.Scenes.Scripts.Ui
 
 			//残り時間を設定
 			timeController.SetTimeLimit(timeLimitValue);
+		}
+
+		private void OnDestroy()
+		{
+			busUiSlider.onScoreOver -= () => { };
+			timeController.OnTimeOver -= () => { };
 		}
 	}
 }
