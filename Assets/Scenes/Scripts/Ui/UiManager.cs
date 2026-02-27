@@ -7,6 +7,8 @@ namespace Assets.Scenes.Scripts.Ui
 		public BusUiSlider busUiSlider;
 		public UiTimeController timeController;
 		public BusController busController;
+		public BusHassyaUiButton busHassyaUiButton;
+
 		[SerializeField,Header("目標金額")]int clearScoreValue;
 		[SerializeField,Header("制限時間")]float timeLimitValue;
 		bool isClear = false;
@@ -18,6 +20,7 @@ namespace Assets.Scenes.Scripts.Ui
 			busUiSlider.SetStart();
 			timeController.SetStart();
 			busController.SetStart();
+			busHassyaUiButton.SetStart();
 
 			//目標金額に到達すると呼ばれる
 			busUiSlider.onScoreOver += () =>

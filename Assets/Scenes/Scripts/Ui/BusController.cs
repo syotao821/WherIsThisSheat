@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scenes.Scripts.Ui
 {
 	/// <summary>
-	/// 発射ボタンを押した時の実装
+	/// バスのアニメーションを管理する
 	/// </summary>
 	public class BusController : MonoBehaviour
 	{
@@ -15,7 +14,7 @@ namespace Assets.Scenes.Scripts.Ui
 			TOUCHAKU,
 			OPENDOOR,
 			CLOSEDOOR,
-			HASSYA,
+			HASSYA,//CLOSEDOORのアニメーションイベント登録済みのため、ドア閉めたら勝手に発車再生
 		}
 
 		BUSANIMATION bUSANIMATION = BUSANIMATION.NONE;

@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 4452219045827108321}
   - component: {fileID: 8281961151113245723}
   - component: {fileID: 8188288675938517290}
+  - component: {fileID: 9192752779158281324}
   m_Layer: 5
   m_Name: HasshaButton
   m_TagString: Untagged
@@ -591,6 +592,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9192752779158281324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246332624205951809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d39b0062d80d146b8773d61c76a88e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3676146369210453894
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +944,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   busUiSlider: {fileID: 6997723167817560950}
   timeController: {fileID: 890151219338520358}
+  busController: {fileID: 0}
+  busHassyaUiButton: {fileID: 9192752779158281324}
   clearScoreValue: 3000
   timeLimitValue: 0.5
 --- !u!1 &5575762298168578753

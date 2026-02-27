@@ -147,7 +147,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 37
+  m_VersionIndex: 40
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -162,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34398849920232587}
   - component: {fileID: 383614623917305931}
+  - component: {fileID: 1062813522310758519}
   m_Layer: 0
   m_Name: bus
   m_TagString: Untagged
@@ -222,6 +223,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1062813522310758519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2534717619025822156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afaaadfb8928264380aed040c3fd932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2890963490223502494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1064,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 37
+  m_VersionIndex: 40
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -154032,7 +154045,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1168
+  m_VersionIndex: 1171
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -303936,7 +303949,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 37
+  m_VersionIndex: 40
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -304088,7 +304101,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 37
+  m_VersionIndex: 40
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -305008,7 +305021,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 37
+  m_VersionIndex: 40
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
