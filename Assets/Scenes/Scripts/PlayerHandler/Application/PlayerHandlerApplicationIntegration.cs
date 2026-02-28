@@ -9,25 +9,35 @@ public class PlayerHandlerApplicationIntegration
     PlayerHandlerInput _playerHandlerInput;
     PlayerHandlerApi _playerHandlerApi;
     PlayerHandlerAnimation _playerHandlerAnimation;
+
+    /// <summary>
+    /// 初期化
+    /// </summary>
+    /// <param name="thisObj"></param>
     public PlayerHandlerApplicationIntegration(GameObject thisObj)
     {
         _playerHandlerInput = new PlayerHandlerInput();
         _playerHandlerApi = new PlayerHandlerApi();
+
+
         ComponentSet(thisObj);
-        _playerHandlerAnimation = new PlayerHandlerAnimation(_playerHandlerApi.Animator);
+        _playerHandlerAnimation = new PlayerHandlerAnimation(_playerHandlerApi.PlayerHandlerAnimator);
 
     }
-    #region コンポーネント
+    #region Setコンポーネント
     void ComponentSet(GameObject thisObj)
     {
-        _playerHandlerApi.PlayerHandleTransform = thisObj.GetComponent<Transform>();
-        _playerHandlerApi.Animator = _playerHandlerApi.PlayerHandleTransform.GetComponent<Animator>();
-        _playerHandlerApi.PlayerHandlerImage=_playerHandlerApi.PlayerHandleTransform.GetComponent<Image>();
+        _playerHandlerApi.PlayerHandlerTransform = thisObj.GetComponent<Transform>();
+        _playerHandlerApi.PlayerHandlerRectTransform = thisObj.GetComponent<RectTransform>();
+        _playerHandlerApi.PlayerHandlerAnimator = _playerHandlerApi.PlayerHandlerTransform.GetComponent<Animator>();
+        _playerHandlerApi.PlayerHandlerImage=_playerHandlerApi.PlayerHandlerTransform.GetComponent<Image>();
     }
+    #endregion
 
-
-    public Transform GetTransForm() => _playerHandlerApi.PlayerHandleTransform;
+    #region Getコンポーネント
+    public Transform GetTransForm() => _playerHandlerApi.PlayerHandlerTransform;
     public Image GetImage() => _playerHandlerApi.PlayerHandlerImage;
+    public RectTransform GetRectTransForm() => _playerHandlerApi.PlayerHandlerRectTransform;
     #endregion
 
     #region Input

@@ -1,23 +1,20 @@
+using System;
 using UnityEngine;
 
 /// <summary>
 /// CSV設定に基づいてオブジェクト生成を行うジェネレータ基底
 /// </summary>
-public abstract class SpawnGenerator<T> : MonoBehaviour where T : class, new()
+public abstract class SpawnGenerator<T> : MonoBehaviour where T : class
 {
-   static ObjectPool pool = new ObjectPool();
-    GameObject obj;
-    T instance;
-    
-    protected virtual (GameObject obj, T logic) CreateNew(GameObject prefab, Vector3 position,Quaternion rotation)
-    {
-        obj = pool.Get(prefab, position, rotation);
+    static ObjectPool pool = new ObjectPool();
 
-        // 純C#ロジック生成
-        instance = new T();
+    protected virtual (GameObject obj, T logic) CreateNew(GameObject prefab,Vector3 position,Quaternion rotation, Func<GameObject, T> logicFactory) 
+    {
+        GameObject obj = pool.Get(prefab, position, rotation);
+
+        // 呼び出し側に生成を委譲
+        T instance = logicFactory(obj);
 
         return (obj, instance);
     }
-
-
 }

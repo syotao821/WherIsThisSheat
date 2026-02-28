@@ -22,7 +22,9 @@ public struct AiData
     [Header("詳細情報")]
     [SerializeField] List<string> _informationStringList;
 
- 
+    [Header("サービスしてくれるお金")]
+    [SerializeField] int _serviceBonusMoney;
+
     // ランタイム注入
     GameObject _viewModel;
     Sprite _viewSprite;
@@ -38,4 +40,5 @@ public struct AiData
 
     public GameObject ViewModel { get => _viewModel; set => _viewModel = value; }
     public Sprite ViewSprite { get => _viewSprite; set => _viewSprite = value; }
+    public int ServiceBonusMoney { get => _serviceBonusMoney; set => _serviceBonusMoney = value; }
 }

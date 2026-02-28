@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerHandlerApi
 {
+    RectTransform _playerHandlerRectTransform;
     Transform _playerHandleTransform;//マウスカーソルのトランスフォーム
-    Animator _animator;//マウスカーソルのアニメーション
+    Animator _playerHandlerAnimator;//マウスカーソルのアニメーション
     Image _playerHnadlerImage;
-
-    public Transform PlayerHandleTransform { get => _playerHandleTransform; set => _playerHandleTransform = value; }
-    public Animator Animator { get => _animator; set => _animator = value; }
+    public RectTransform PlayerHandlerRectTransform { get => _playerHandlerRectTransform; set => _playerHandlerRectTransform = value; }
+    public Transform PlayerHandlerTransform { get => _playerHandleTransform; set => _playerHandleTransform = value; }
+    public Animator PlayerHandlerAnimator { get => _playerHandlerAnimator; set => _playerHandlerAnimator = value; }
     public Image PlayerHandlerImage { get => _playerHnadlerImage; set => _playerHnadlerImage = value; }
 }

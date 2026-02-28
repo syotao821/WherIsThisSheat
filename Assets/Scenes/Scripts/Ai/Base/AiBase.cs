@@ -1,9 +1,13 @@
+using UnityEngine;
+
 public class AIBase 
 {
-   public AIBase()
-    {
-      UnityEngine.Debug.Log(1);
-    }
+    AiProvider aiProvider;
+
+   public AIBase(GameObject thisObj)
+   {
+        aiProvider=new AiProvider(thisObj);
+   }
  
 
 }

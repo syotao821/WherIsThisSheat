@@ -28,6 +28,8 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
     /// </summary>
     public void Update()
     {
+        _probider.GetPlayerHnadlerLogicProvider().HandlerMove();
+
         if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
         {
 

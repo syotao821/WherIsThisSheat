@@ -27,6 +27,7 @@ public class PlayerHnadlerHoldingAIState : IPlayerHandlerState
     /// </summary>
     public void Update()
     {
+        _probider.GetPlayerHnadlerLogicProvider().HandlerMove();
 
 
     }

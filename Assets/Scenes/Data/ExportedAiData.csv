@@ -1,2 +1,2 @@
-﻿Id,Name,PairSeatId,ViewModelKey,ViewSpriteKey,InformationStrings
-0,0,0,M_Ai00,S_Ai00,0|0
+Id,Name,PairSeatId,ViewModelKey,ViewSpriteKey,InformationStrings,ServiceBonusMoney
+0,0,0,M_Ai00,S_Ai00,0|00,0

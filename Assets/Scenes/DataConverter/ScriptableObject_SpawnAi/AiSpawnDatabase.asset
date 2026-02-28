@@ -18,3 +18,5 @@ MonoBehaviour:
     _standardAiList:
     - _standardId: 0
       _spawnOffset: {x: 0, y: 0, z: 0}
+    - _standardId: 0
+      _spawnOffset: {x: 50, y: 0, z: 50}

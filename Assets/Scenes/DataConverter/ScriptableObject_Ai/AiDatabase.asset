@@ -20,4 +20,5 @@ MonoBehaviour:
     _viewSpriteName: S_Ai00
     _informationStringList:
     - 0
-    - 0
+    - 00
+    _serviceBonusMoney: 0

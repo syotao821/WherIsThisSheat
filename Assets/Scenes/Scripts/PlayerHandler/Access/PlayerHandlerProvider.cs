@@ -8,12 +8,12 @@ public class PlayerHandlerProvider
 
     PlayerHandlerPresenter _playerHandlerPresenter;
     PlayerHandlerApplicationProvider _playerHandlerApplicationProvider;
-    PlayerHnadlerLogicProvider _playerHnadlerLogicProvider;
+    PlayerHandlerLogicProvider _playerHnadlerLogicProvider;
     public PlayerHandlerProvider(PlayerHandlerView _playerHandlerView, GameObject _playerHandlerObj)
     {
         _playerHandlerApplicationProvider = new PlayerHandlerApplicationProvider(_playerHandlerObj);
-        _playerHnadlerLogicProvider = new PlayerHnadlerLogicProvider();
         _playerHandlerPresenter = new PlayerHandlerPresenter(_playerHandlerView, _playerHandlerApplicationProvider.GetApplication().GetImage());
+        _playerHnadlerLogicProvider = new PlayerHandlerLogicProvider(_playerHandlerApplicationProvider.GetApplication(), _playerHandlerPresenter);
 
     }
 
@@ -33,5 +33,5 @@ public class PlayerHandlerProvider
     /// ロジック
     /// </summary>
     /// <returns></returns>
-    public PlayerHnadlerLogicProvider GetPlayerHnadlerLogicProvider() => _playerHnadlerLogicProvider;
+    public PlayerHandlerLogicProvider GetPlayerHnadlerLogicProvider() => _playerHnadlerLogicProvider;
 }

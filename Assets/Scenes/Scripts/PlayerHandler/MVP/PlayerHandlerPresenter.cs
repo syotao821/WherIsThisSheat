@@ -22,4 +22,14 @@ public class PlayerHandlerPresenter
     {
         _playerHandlerImage.sprite = _playerHandlerView.HandSprite;
     }
+
+    #region GetView
+
+    public Canvas GetCanvas()
+    {
+        return _playerHandlerView.Canvas;
+    }
+
+    #endregion
+
 }
