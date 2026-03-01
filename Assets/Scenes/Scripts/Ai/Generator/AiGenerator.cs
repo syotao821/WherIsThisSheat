@@ -1,4 +1,4 @@
-using UnityEditor.VersionControl;
+
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +9,8 @@ public class AiGenerator : SpawnGenerator<AIBase>,IGameInit
 
     [SerializeField] LoadAiData loadAiData;
 
+    //このクラスで通知リストのAddを行う
+   
     /// <summary>
     /// 初回生成
     /// </summary>
@@ -21,6 +23,7 @@ public class AiGenerator : SpawnGenerator<AIBase>,IGameInit
             {
                 (GameObject obj, AIBase logic) =
                     CreateNew(loadAiData.AiDataBase.aiDataArray[standardAi.StandardId].ViewModel, spawnData.SpawnPos+ standardAi.SpawnOffset,Quaternion.identity, go => new AIBase(go));
+                NotificationManager.Instance.AiNotification.AddHitTransform(loadAiData.AiDataBase.aiDataArray[standardAi.StandardId].ViewModel.transform);
             }
 
         }

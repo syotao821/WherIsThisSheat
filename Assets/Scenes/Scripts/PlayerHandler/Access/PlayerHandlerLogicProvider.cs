@@ -12,4 +12,6 @@ public class PlayerHandlerLogicProvider
     /// マウスカーソル移動
     /// </summary>
     public void HandlerMove()=> _logicIntegration.PlayerHandlerMove();
+    public Transform GetHitTransform() => _logicIntegration.GetHitTransform();
+    public bool GetIsRayHit() => _logicIntegration.GetIsRayHit();
 }

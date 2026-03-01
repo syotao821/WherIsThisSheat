@@ -29,10 +29,14 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
     public void Update()
     {
         _probider.GetPlayerHnadlerLogicProvider().HandlerMove();
+        _probider.GetPlayerHnadlerLogicProvider().GetHitTransform();
 
-        if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
+        if (!_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
         {
-
+            if (_probider.GetPlayerHnadlerLogicProvider().GetIsRayHit())
+            {
+                UnityEngine.Debug.Log("a");
+            }
         }
     }
 

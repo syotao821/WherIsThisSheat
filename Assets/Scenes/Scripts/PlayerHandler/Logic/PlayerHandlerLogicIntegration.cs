@@ -12,6 +12,7 @@ public class PlayerHandlerLogicIntegration
     readonly Canvas _playerHandlerCanvas;
 
     readonly PlayerHandlerMove _playerHandlerMove;
+    readonly MouseRayCheckerPhysics _mouseRayChecker;
 
     public PlayerHandlerLogicIntegration(PlayerHandlerApplicationIntegration _playerHandlerApplicationIntegration, PlayerHandlerPresenter _playerHandlerPresenter)
     {
@@ -25,8 +26,11 @@ public class PlayerHandlerLogicIntegration
 
 
         _playerHandlerMove = new PlayerHandlerMove(_playerHandlerRectTransform, _playerHandlerCanvas);
+        _mouseRayChecker = new MouseRayCheckerPhysics();
     }
 
 
     public void PlayerHandlerMove()=> _playerHandlerMove.HandlerMove();
+    public Transform GetHitTransform()=> _mouseRayChecker.GetHitTransform();
+    public bool GetIsRayHit()=> _mouseRayChecker.GetIsRayHit();
 }
