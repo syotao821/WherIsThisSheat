@@ -24,6 +24,7 @@ public class MouseDragHandler
     public void StartDrag(Transform obj)
     {
         _draggedObject = obj;
+        UnityEngine.Debug.Log("a");
     }
 
     /// <summary>
