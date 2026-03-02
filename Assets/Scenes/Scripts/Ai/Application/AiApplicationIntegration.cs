@@ -40,7 +40,6 @@ public class AiApplicationIntegration
 
     #endregion
 
-
     #region アニメーション
     public void GetIdleAnimPlay() => _aiAnimation.IdleAnimPlay();
     #endregion
