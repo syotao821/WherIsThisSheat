@@ -2,6 +2,9 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+/// <summary>
+/// フェードしながらシーン遷移するためのクラス
+/// </summary>
 public class FadeManager : MonoBehaviour
 {
 	CanvasGroup canvasGroup;
@@ -13,38 +16,46 @@ public class FadeManager : MonoBehaviour
 		if (canvasGroup == null)
 			canvasGroup = transform.GetChild(0).GetComponent<CanvasGroup>();
 
+		//シーン開始時にフェードインする
 		canvasGroup.alpha = 1f;
 		StartCoroutine(Fade(1, 0, 0.5f));
 	}
 
 
-	public IEnumerator Fade(float from, float to, float duration)
+	public IEnumerator Fade(float _from, float _to, float _duration)
 	{
 		float time = 0;
-		canvasGroup.alpha = from;
+		canvasGroup.alpha = _from;
 
-		while (time < duration)
+		while (time < _duration)
 		{
-			canvasGroup.alpha = Mathf.Lerp(from, to, time / duration);
+			canvasGroup.alpha = Mathf.Lerp(_from, _to, time / _duration);
 			time += Time.deltaTime;
 			yield return null;
 		}
 
-		canvasGroup.alpha = to;
+		canvasGroup.alpha = _to;
 	}
 
-	public void LoadScene(int sceneIndex)
+	/// <summary>
+	/// 外部からシーン遷移を呼び出すための関数
+	/// 基本的にはButtonインスペクターのOnClick()から呼び出すことを想定している
+	/// </summary>
+	/// <param name="_sceneIndex"></param>
+	public void LoadScene(int _sceneIndex)
 	{
 		if (isLoading) return;//2重タップ防止
 
 		isLoading = true;
-		StartCoroutine(LoadRoutine(sceneIndex, fadeTime));
+		StartCoroutine(LoadRoutine(_sceneIndex, fadeTime));
 	}
 
-	private IEnumerator LoadRoutine(int scene, float time)
+	private IEnumerator LoadRoutine(int _scene, float _time)
 	{
-		yield return Fade(0, 1, time);
+		//フェードアウト
+		yield return Fade(0, 1, _time);
 
-		yield return SceneManager.LoadSceneAsync(scene);
+		//シーンロード
+		yield return SceneManager.LoadSceneAsync(_scene);
 	}
 }

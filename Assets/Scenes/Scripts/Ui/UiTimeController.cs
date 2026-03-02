@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +6,7 @@ namespace Assets.Scenes.Scripts.Ui
 {
 	public class UiTimeController : MonoBehaviour
 	{
-		float limitTime;//3分なら3
+		float limitTime;//3分なら3 30秒なら0.5 など、分単位で設定する
 		float currentTime;
 		Text timeText;
 		Image timerImage;

@@ -28,9 +28,9 @@ public class BusController : MonoBehaviour
 	/// 指定したEnumのアニメーションを再生(引数整数)
 	/// </summary>
 	/// <param name="id"></param>
-	public void PlayBusAnimation(int id)
+	public void PlayBusAnimation(int _id)
 	{
-		BUSANIMATION animID = (BUSANIMATION)id;
+		BUSANIMATION animID = (BUSANIMATION)_id;
 		if (animID == BUSANIMATION.NONE)
 		{
 			Debug.Log("アニメーション未指定");
@@ -45,16 +45,16 @@ public class BusController : MonoBehaviour
 	/// 指定したEnumのアニメーションを再生(引数列挙型)
 	/// </summary>
 	/// <param name="id"></param>
-	public void PlayBusAnimation(BUSANIMATION id)
+	public void PlayBusAnimation(BUSANIMATION _id)
 	{
-		if (id == BUSANIMATION.NONE)
+		if (_id == BUSANIMATION.NONE)
 		{
 			Debug.Log("アニメーション未指定");
 			return;
 		}
 
-		animator.Play(id.ToString(), 0, 0.0f);
-		bUSANIMATION = id;
+		animator.Play(_id.ToString(), 0, 0.0f);
+		bUSANIMATION = _id;
 	}
 
 	/// <summary>
