@@ -1,3 +1,5 @@
+using UnityEngine;
+
 /// <summary>
 /// お客さんを探しているとき
 /// </summary>
@@ -5,13 +7,14 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
 {
     PlayerHandlerProvider _probider;
     PlayerHandler _playerHandler;
+    Transform _tagetTransform;
     public PLAYERHANDLERSTATE State => PLAYERHANDLERSTATE.SEARCHINGAI;
 
     public PlayerHnadlerSearchingAIState(PlayerHandler _playerHandler, PlayerHandlerProvider _probider)
     {
         this._playerHandler = _playerHandler;
         this._probider = _probider;
-
+      
     }
 
     /// <summary>
@@ -29,15 +32,27 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
     public void Update()
     {
         _probider.GetPlayerHnadlerLogicProvider().HandlerMove();
-        _probider.GetPlayerHnadlerLogicProvider().GetHitTransform();
+        _tagetTransform= _probider.GetPlayerHnadlerLogicProvider().GetHitTransform();
 
-        if (!_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
+        if (_probider.GetPlayerHnadlerLogicProvider().GetIsRayHit())
         {
-            if (_probider.GetPlayerHnadlerLogicProvider().GetIsRayHit())
+            RayEventHub.RaiseOnRayFire(_tagetTransform);
+
+            if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
             {
-                UnityEngine.Debug.Log("a");
+               
+            }
+            else
+            {
+
             }
         }
+        else
+        {
+            RayEventHub.RaiseOnRayFire(null);
+        }
+
+
     }
 
 

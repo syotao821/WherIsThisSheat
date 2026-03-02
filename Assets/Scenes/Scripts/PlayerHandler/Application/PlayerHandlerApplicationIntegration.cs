@@ -41,6 +41,10 @@ public class PlayerHandlerApplicationIntegration
     #endregion
 
     #region Input
+    /// <summary>
+    ///!Input.GetMouseButton(0);
+    /// </summary>
+    /// <returns></returns>
     public bool GetInputSearchingAi()=> _playerHandlerInput.InputSearchingAi();
     public bool GetInputHoldingAi() =>_playerHandlerInput.InputHoldingAi();
     public bool GetInputCarryingAi() => _playerHandlerInput.InputCarryingAi();

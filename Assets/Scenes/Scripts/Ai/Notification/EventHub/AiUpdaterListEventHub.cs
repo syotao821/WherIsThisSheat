@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 
 public class AiUpdaterListEventHub
 {
@@ -14,7 +13,7 @@ public class AiUpdaterListEventHub
         _onAiBase?.Invoke(_aiBase);
     }
 
-    public void RaiseAiBaseListClear()
+    public void RaiseOnAiBaseListClear()
     {
         _onAiBaseClear?.Invoke();
     }

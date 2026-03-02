@@ -6,6 +6,9 @@ public class PlayerHandler : MonoBehaviour, IGameInit
     PlayerHandlerStateContext _context;
     PlayerHandlerProvider _probider;
     [SerializeField] PlayerHandlerView _view;
+
+    public int InitOrder =>0;
+
     void IGameInit.GameInit()
     {
         _context = new PlayerHandlerStateContext();

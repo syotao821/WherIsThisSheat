@@ -1,9 +1,5 @@
-/// <summary>
-/// 通知専用のクラス
-/// </summary>
-public class AiDataNotificationMessage
+public class AiEventReciverMessage
 {
-
     AiData _aiData;
     AiRunTimeData _aiRunTimeData;
 
@@ -12,6 +8,4 @@ public class AiDataNotificationMessage
 
     public AiData GetAiData() => this._aiData;
     public AiRunTimeData GetAiRunTimeData() => this._aiRunTimeData;
-
 }
-  
