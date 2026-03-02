@@ -1,11 +1,17 @@
 using UnityEngine;
-
+/// <summary>
+/// AIに関する総合的なアクセッサー
+/// </summary>
 public class AiProvider
 {
     AiApplicationProvider _applicationProvider;
-    public AiProvider(GameObject aiObj)
+    AiLogickIntegration _logickIntegration;
+
+
+    public AiProvider(GameObject _aiObj)
     {
-        _applicationProvider = new AiApplicationProvider(aiObj);
+        _applicationProvider = new AiApplicationProvider(_aiObj);
+        _logickIntegration = new AiLogickIntegration(_aiObj.transform);
     }
 
 
@@ -14,5 +20,11 @@ public class AiProvider
     /// </summary>
     /// <returns></returns>
     public AiApplicationProvider GetApplication() => _applicationProvider;
+
+    /// <summary>
+    /// ロジックのゲッター
+    /// </summary>
+    /// <returns></returns>
+    public AiLogickIntegration GetAiLogickIntegration() => _logickIntegration;
 
 }

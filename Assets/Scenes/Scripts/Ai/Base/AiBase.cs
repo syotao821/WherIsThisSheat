@@ -1,13 +1,21 @@
 using UnityEngine;
-
-public class AIBase 
+/// <summary>
+/// AIの基本処理　（井町さんが触る場所）
+/// </summary>
+public class AiBase 
 {
-    AiProvider aiProvider;
+    AiProvider _aiProvider;
 
-   public AIBase(GameObject thisObj)
-   {
-        aiProvider=new AiProvider(thisObj);
-   }
- 
+    public AiBase(GameObject thisObj)
+    {
+        _aiProvider = new AiProvider(thisObj);
+
+
+    }
+
+    public void Update()
+    {
+
+    }
 
 }
