@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using static UnityEngine.PlayerLoop.PreUpdate;
 
 /// <summary>
 /// AI生成ジェネレータ（グループ配置型）
@@ -9,14 +10,16 @@ public class AiGenerator : SpawnGenerator<AiBase>,IGameInit
     [SerializeField] LoadAiData loadAiData;
     AiUpdaterEventListener _aiUpdaterEventListener;
     AiUpdaterListEventHub _aiUpdaterListEventHub;
-
+    AiUpdater _aiUpdater;
     /// <summary>
     /// 初回生成
     /// </summary>
     void IGameInit.GameInit()
     {
+        _aiUpdater = FindFirstObjectByType<AiUpdater>();
         _aiUpdaterEventListener = new AiUpdaterEventListener();
         _aiUpdaterListEventHub  = new AiUpdaterListEventHub();
+        _aiUpdater.InitDI(_aiUpdaterEventListener);
         foreach (AiSpawnData spawnData in loadAiData.AiSpawnDataBase.aiSpawnDataArray)
         {
             foreach (StandardAi standardAi in spawnData.StandardAiList)
