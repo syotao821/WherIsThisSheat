@@ -4,6 +4,15 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Scenen/imachi/Title.unity
+    guid: fcb852354fe0ec440b228edfc9f10a34
+  - enabled: 1
+    path: Assets/Scenes/Scenen/imachi/GameSelect.unity
+    guid: 6dedd867a8b65bc4e857ffa499f0f23c
+  - enabled: 1
+    path: Assets/Scenes/Scenen/imachi/imachiTest.unity
+    guid: 650c185aabf74ae419775e899d11e1ae
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 9221bc3195c16a54d9152ff2fac7c8ac, type: 2}

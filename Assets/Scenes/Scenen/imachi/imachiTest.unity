@@ -1388,6 +1388,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873906438}
   m_CullTransparentMesh: 1
+--- !u!1001 &934568180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.965088
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.397007
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.704025
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845787972285808071, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289826561882289275, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+      propertyPath: m_Name
+      value: FadeManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+--- !u!114 &934568181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7525907829368090770, guid: 09c2db9e9c9b12b4e803c6fd40b19073, type: 3}
+  m_PrefabInstance: {fileID: 934568180}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f84fce57638804283305c92d7ab120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &950523321
 Mesh:
   m_ObjectHideFlags: 0
@@ -2498,7 +2566,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1483688499}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 934568181}
+        m_TargetAssemblyTypeName: FadeManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1483688499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2698,7 +2778,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1510801012}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 934568181}
+        m_TargetAssemblyTypeName: FadeManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1510801012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2830,7 +2922,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1628197919}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 934568181}
+        m_TargetAssemblyTypeName: FadeManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1628197919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5269,3 +5373,4 @@ SceneRoots:
   - {fileID: 871883175}
   - {fileID: 727108253}
   - {fileID: 688425068}
+  - {fileID: 934568180}

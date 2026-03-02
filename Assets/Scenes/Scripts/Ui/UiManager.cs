@@ -1,52 +1,54 @@
-﻿using UnityEngine;
+﻿using Assets.Scenes.Scripts.Ui;
+using UnityEngine;
 
-namespace Assets.Scenes.Scripts.Ui
+public class UiManager : MonoBehaviour
 {
-	public class UiManager : MonoBehaviour
+	public BusUiSlider busUiSlider;
+	public UiTimeController timeController;
+	public BusController busController;
+	public BusHassyaUiButton busHassyaUiButton;
+	public ResultManager resultManager;
+
+	[SerializeField, Header("目標金額")] int clearScoreValue;
+	[SerializeField, Header("制限時間")] float timeLimitValue;
+	bool isClear = false;
+	bool isGameOver = false;
+
+	private void Start()
 	{
-		public BusUiSlider busUiSlider;
-		public UiTimeController timeController;
-		public BusController busController;
-		public BusHassyaUiButton busHassyaUiButton;
+		//UI関係の初期化
+		busUiSlider.SetStart();
+		timeController.SetStart();
+		busController.SetStart();
+		busHassyaUiButton.SetStart();
+		resultManager.SetStart();
 
-		[SerializeField,Header("目標金額")]int clearScoreValue;
-		[SerializeField,Header("制限時間")]float timeLimitValue;
-		bool isClear = false;
-		bool isGameOver = false;
-
-		private void Start()
+		//目標金額に到達すると呼ばれる
+		busUiSlider.onScoreOver += () =>
 		{
-			//UI関係の初期化
-			busUiSlider.SetStart();
-			timeController.SetStart();
-			busController.SetStart();
-			busHassyaUiButton.SetStart();
+			isClear = true;
+			Debug.Log("クリア");
+			resultManager.SetResultPanel(true);
+		};
 
-			//目標金額に到達すると呼ばれる
-			busUiSlider.onScoreOver += () =>
-			{
-				isClear = true;
-				Debug.Log("クリア");
-			};
-
-			//残り時間が０になると呼ばれる
-			timeController.OnTimeOver += () =>
-			{
-				isGameOver = true;
-				Debug.Log("タイムオーバー");
-			};
-
-			//目標金額を設定
-			busUiSlider.SetClearScore(clearScoreValue);
-
-			//残り時間を設定
-			timeController.SetTimeLimit(timeLimitValue);
-		}
-
-		private void OnDestroy()
+		//残り時間が０になると呼ばれる
+		timeController.OnTimeOver += () =>
 		{
-			busUiSlider.onScoreOver -= () => { };
-			timeController.OnTimeOver -= () => { };
-		}
+			isGameOver = true;
+			Debug.Log("タイムオーバー");
+			resultManager.SetResultPanel(false);
+		};
+
+		//目標金額を設定
+		busUiSlider.SetClearScore(clearScoreValue);
+
+		//残り時間を設定
+		timeController.SetTimeLimit(timeLimitValue);
+	}
+
+	private void OnDestroy()
+	{
+		busUiSlider.onScoreOver -= () => { };
+		timeController.OnTimeOver -= () => { };
 	}
 }
