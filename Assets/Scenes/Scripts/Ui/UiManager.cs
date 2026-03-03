@@ -8,11 +8,13 @@ public class UiManager : MonoBehaviour,IGameInit
 	public BusController busController;
 	public BusHassyaUiButton busHassyaUiButton;
 	public ResultManager resultManager;
+	public UiCharaInfomation uiCharaInfomation;
 
 	[SerializeField, Header("目標金額")] int clearScoreValue;
 	[SerializeField, Header("制限時間")] float timeLimitValue;
 	bool isClear = false;
 	bool isGameOver = false;
+
 	public int InitOrder => 4;
 
 	void IGameInit.GameInit()
@@ -23,6 +25,7 @@ public class UiManager : MonoBehaviour,IGameInit
 		busController.SetStart();
 		busHassyaUiButton.SetStart();
 		resultManager.SetStart();
+		uiCharaInfomation.SetStart();
 
 		//目標金額に到達すると呼ばれる
 		busUiSlider.onScoreOver += () =>

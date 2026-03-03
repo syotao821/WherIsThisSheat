@@ -466,6 +466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4201065704664486}
   - component: {fileID: 95400052344024190}
+  - component: {fileID: -632946904932553045}
   m_Layer: 3
   m_Name: M_Ai10
   m_TagString: Untagged
@@ -511,6 +512,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &-632946904932553045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766805438957990}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.7938894, z: 1}
+  m_Center: {x: 0, y: 0.9506052, z: 0}
 --- !u!1 &1770017933627188
 GameObject:
   m_ObjectHideFlags: 0

@@ -201,6 +201,23 @@ MonoBehaviour:
   loadAiData:
     _aiDataBase: {fileID: 11400000, guid: ccad56353956e114c8ae76373713aeb3, type: 2}
     _aiSpawnDataBase: {fileID: 11400000, guid: baeb0aae19d935b46a59e213157e97c5, type: 2}
+--- !u!1 &87881156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7680661172404282336, guid: d6184dbd7debe654aabcbdffc2cbc410, type: 3}
+  m_PrefabInstance: {fileID: 3159821552832641677}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &87881158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87881156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f44e24dcb835048bac932e74d475c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &152294979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,6 +2487,10 @@ PrefabInstance:
       propertyPath: busController
       value: 
       objectReference: {fileID: 1534870288}
+    - target: {fileID: 98135536356714224, guid: d6184dbd7debe654aabcbdffc2cbc410, type: 3}
+      propertyPath: uiCharaInfomation
+      value: 
+      objectReference: {fileID: 87881158}
     - target: {fileID: 3142246795362460963, guid: d6184dbd7debe654aabcbdffc2cbc410, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2588,7 +2609,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3142246795362460963, guid: d6184dbd7debe654aabcbdffc2cbc410, type: 3}
       insertIndex: 4
       addedObject: {fileID: 1804016450}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7680661172404282336, guid: d6184dbd7debe654aabcbdffc2cbc410, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 87881158}
   m_SourcePrefab: {fileID: 100100000, guid: d6184dbd7debe654aabcbdffc2cbc410, type: 3}
 --- !u!223 &3159821552832641678 stripped
 Canvas:
@@ -4652,5 +4676,5 @@ SceneRoots:
   - {fileID: 1437002267}
   - {fileID: 620084987}
   - {fileID: 1078205481}
-  - {fileID: 8064551079608545494}
   - {fileID: 871883175}
+  - {fileID: 8064551079608545494}
