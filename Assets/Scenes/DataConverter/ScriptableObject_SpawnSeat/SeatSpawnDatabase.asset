@@ -17,6 +17,8 @@ MonoBehaviour:
     spawnPos: {x: 0, y: 0, z: 0}
     _standardSeatList:
     - _standardId: 0
-      _spawnOffset: {x: 0, y: 0, z: 0}
-    - _standardId: 0
-      _spawnOffset: {x: 0, y: 0, z: 0}
+      _spawnOffset: {x: -6.56, y: 0.35, z: 7.12}
+    - _standardId: 1
+      _spawnOffset: {x: -6.52, y: 0.35, z: 4.98}
+    - _standardId: 1
+      _spawnOffset: {x: -6.49, y: 0.35, z: 3.22}
