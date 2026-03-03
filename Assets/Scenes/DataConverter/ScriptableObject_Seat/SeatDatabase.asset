@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3228f0e0ebcbd48be058b90fe7321a, type: 3}
-  m_Name: AiSpawnDatabase
+  m_Script: {fileID: 11500000, guid: 6f5ca5552edbc1c46a34614eb4c14336, type: 3}
+  m_Name: SeatDatabase
   m_EditorClassIdentifier: 
-  aiSpawnDataArray:
-  - _groupId: 0
-    spawnPos: {x: 0, y: 0, z: 0}
-    _standardAiList:
-    - _standardId: 0
-      _spawnOffset: {x: 0, y: 0, z: 0}
+  _seatDataArray:
+  - _id: 0
+    _name: 
+    _viewModelName: M_Seat00
+    _pairSeatId: 0

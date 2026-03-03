@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3228f0e0ebcbd48be058b90fe7321a, type: 3}
-  m_Name: AiSpawnDatabase
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: SeatData_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  aiSpawnDataArray:
-  - _groupId: 0
-    spawnPos: {x: 0, y: 0, z: 0}
-    _standardAiList:
-    - _standardId: 0
-      _spawnOffset: {x: 0, y: 0, z: 0}
+  m_Group: {fileID: 11400000, guid: 657c094a8d21d7b409aa3f516f6eaa1d, type: 2}
+  m_StaticContent: 0

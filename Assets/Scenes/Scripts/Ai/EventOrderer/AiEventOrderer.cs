@@ -23,6 +23,7 @@ public class AiEventOrderer:IDisposable
     {
         this. _targetTransform = _toAiEventListener._toAiEventCallback.Invoke();
         if(this._targetTransform==null)return;
+        Debug.Log(this._targetTransform);
         if(this._targetTransform== _targetTransform)
         {
             _aiDataEventHub.RaiseAiData(_aiData);
