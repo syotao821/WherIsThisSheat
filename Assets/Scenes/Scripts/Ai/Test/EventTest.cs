@@ -1,8 +1,12 @@
-using System.Diagnostics;
 
 public class EventTest: AiDataEventReciverListener
 {
     AiData AiData;
+    BussChildSet bussChildSet;
+    private void Start()
+    {
+        bussChildSet=new BussChildSet(this.transform);
+    }
     public void Update()
     {
       
