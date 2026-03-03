@@ -12,6 +12,14 @@ public class PlayerHandlerLogicProvider
     /// マウスカーソル移動
     /// </summary>
     public void HandlerMove()=> _logicIntegration.PlayerHandlerMove();
+    /// <summary>
+    /// レイがヒットしたときヒットしたtransformを返す
+    /// </summary>
+    /// <returns></returns>
     public Transform GetHitTransform() => _logicIntegration.GetHitTransform();
+    /// <summary>
+    /// レイがヒットしたかどうか
+    /// </summary>
+    /// <returns></returns>
     public bool GetIsRayHit() => _logicIntegration.GetIsRayHit();
 }

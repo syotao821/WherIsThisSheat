@@ -3,7 +3,8 @@ using System.Collections.Generic;
 public class AiUpdaterEventListener : IDisposable
 {
     AiUpdaterListNotificationMessage _aiUpdaterListNotificationMessage;
-  
+    public Func<IReadOnlyList<AiBase>> _getAiBaseList;
+
     bool _disposed;
 
     public AiUpdaterEventListener()
@@ -13,7 +14,7 @@ public class AiUpdaterEventListener : IDisposable
         AiUpdaterListEventHub._onAiBase += AddAiBase;
         AiUpdaterListEventHub._onAiBaseClear += Clear;
 
-
+        _getAiBaseList = GetAiBaseList;
     }
 
     public void Dispose()
@@ -29,9 +30,9 @@ public class AiUpdaterEventListener : IDisposable
         _disposed = true;
     }
   
-    public void Clear()=> _aiUpdaterListNotificationMessage.Clear();
+    void Clear()=> _aiUpdaterListNotificationMessage.Clear();
 
-    public void AddAiBase(AiBase _aiBase) => _aiUpdaterListNotificationMessage.AddAiBase(_aiBase);
+    void AddAiBase(AiBase _aiBase) => _aiUpdaterListNotificationMessage.AddAiBase(_aiBase);
 
     public IReadOnlyList<AiBase> GetAiBaseList() => _aiUpdaterListNotificationMessage.GetAiBaseList();
 

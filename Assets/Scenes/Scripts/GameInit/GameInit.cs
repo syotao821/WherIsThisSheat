@@ -10,7 +10,8 @@ public class GameInit : MonoBehaviour
     List<IGameInit> _initObjects = new List<IGameInit>();
     private void Awake()
     {
-        _initObjects = FindObjectsOfType<MonoBehaviour>().OfType<IGameInit>().ToList();
+        _initObjects = 
+            FindObjectsOfType<MonoBehaviour>(true).OfType<IGameInit>() .OrderBy(x => x.InitOrder).ToList();
 
         foreach (IGameInit obj in _initObjects)
         {

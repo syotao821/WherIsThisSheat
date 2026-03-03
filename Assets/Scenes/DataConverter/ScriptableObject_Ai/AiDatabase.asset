@@ -22,3 +22,12 @@ MonoBehaviour:
     - 0
     - 00
     _serviceBonusMoney: 0
+  - _id: 1
+    _name: 221
+    _viewModelName: M_Ai00
+    _pairSeatId: 0
+    _viewSpriteName: S_Ai00
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0

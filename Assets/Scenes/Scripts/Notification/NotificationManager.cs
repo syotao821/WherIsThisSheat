@@ -1,9 +1,5 @@
 
-public class NotificationManager : SingletonBehaviour<NotificationManager>, IGameInit
+public class NotificationManager : SingletonBehaviour<NotificationManager>
 {
 
-    void IGameInit.GameInit()
-    {
-
-    }
 }
