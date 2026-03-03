@@ -1,7 +1,7 @@
 ﻿using Assets.Scenes.Scripts.Ui;
 using UnityEngine;
 
-public class UiManager : MonoBehaviour
+public class UiManager : MonoBehaviour,IGameInit
 {
 	public BusUiSlider busUiSlider;
 	public UiTimeController timeController;
@@ -13,8 +13,9 @@ public class UiManager : MonoBehaviour
 	[SerializeField, Header("制限時間")] float timeLimitValue;
 	bool isClear = false;
 	bool isGameOver = false;
+	public int InitOrder => 4;
 
-	private void Start()
+	void IGameInit.GameInit()
 	{
 		//UI関係の初期化
 		busUiSlider.SetStart();
