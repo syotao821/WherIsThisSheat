@@ -8,13 +8,11 @@ public class SeatProvider  :IDisposable
     SeatApplicationProvider _applicationProvider;
     SeatLogicProvider _logicProvider;
     SeatData _seatData;
-    SeatEventOrder _seatEventOrder;
     public SeatProvider(GameObject _aiObj, SeatData _aiData)
     {
         _applicationProvider = new SeatApplicationProvider(_aiObj);
         _logicProvider = new SeatLogicProvider(_aiObj.transform);
         this._seatData = _aiData;
-        _seatEventOrder=new SeatEventOrder();
     }
 
 
@@ -42,7 +40,6 @@ public class SeatProvider  :IDisposable
     public void Dispose()
     {
 
-        _seatEventOrder.Dispose();
         _logicProvider.Dispose();
 
     } 

@@ -2,15 +2,17 @@
 
 using UnityEngine;
 
-public class BussChildSet 
+public class BussChildSet
 {
-    SeatParentEventHub _seatPearentEventHub;
+    SeatParentReceiverEventHub _seatParentReceiverEventHub;
     Transform _bussTrans;
     public BussChildSet(Transform _bussTrans)
     {
         this._bussTrans = _bussTrans;
-        _seatPearentEventHub=new SeatParentEventHub();
-        _seatPearentEventHub.RaiseOnSeatParent(this._bussTrans);
+
+        _seatParentReceiverEventHub = new SeatParentReceiverEventHub();
+        _seatParentReceiverEventHub.RaiseOnSeatParent(this._bussTrans);
+        UnityEngine.Debug.Log(2);
 
     }
 

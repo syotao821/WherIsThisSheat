@@ -5,7 +5,7 @@ public abstract class SeatParentReceiverListener : IDisposable
 {
 
     SeatParentReceiverMessage _seatParentReceiverMessage;
-    Func<Transform> _getParentTransform;
+    protected Func<Transform> _getParentTransform;
     protected Transform _parentTransform;
     bool _disposed;
 
@@ -16,6 +16,7 @@ public abstract class SeatParentReceiverListener : IDisposable
 
         _getParentTransform = GetParentTransform;
         _parentTransform = _getParentTransform.Invoke();
+        UnityEngine.Debug.Log(1);
     }
 
     public virtual void Dispose()
@@ -27,5 +28,5 @@ public abstract class SeatParentReceiverListener : IDisposable
 
 
     void SetParentTransform(Transform _parentTransform) => _seatParentReceiverMessage.SetParentTransform(_parentTransform);
-    public Transform GetParentTransform() => _seatParentReceiverMessage.GetParentTransform();
+    protected Transform GetParentTransform() => _seatParentReceiverMessage.GetParentTransform();
 }

@@ -3,9 +3,11 @@ public class EventTest: AiDataEventReciverListener
 {
     AiData AiData;
     BussChildSet bussChildSet;
-    private void Start()
+    public override void GameInit()
     {
+        base.GameInit();
         bussChildSet=new BussChildSet(this.transform);
+        UnityEngine.Debug.Log(3);
     }
     public void Update()
     {

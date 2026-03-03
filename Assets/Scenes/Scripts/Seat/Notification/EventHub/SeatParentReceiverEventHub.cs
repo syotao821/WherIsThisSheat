@@ -7,6 +7,6 @@ public class SeatParentReceiverEventHub
     public static event OnSeatPearentReceiver _onSeatPearentReceiver;
     public void RaiseOnSeatParent(Transform _parentTransform)
     {
-        _onSeatPearentReceiver?.Invoke(_parentTransform);
+        _onSeatPearentReceiver.Invoke(_parentTransform);
     }
 }
