@@ -14,19 +14,181 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiDataArray:
   - _id: 0
-    _name: 0
-    _viewModelName: M_Ai00
+    _name: Char01
+    _viewModelName: char01
     _pairSeatId: 0
-    _viewSpriteName: S_Ai00
+    _viewSpriteName: char01_S
     _informationStringList:
     - 0
     - 00
     _serviceBonusMoney: 0
   - _id: 1
-    _name: 221
-    _viewModelName: M_Ai00
+    _name: Char02
+    _viewModelName: char02
     _pairSeatId: 0
-    _viewSpriteName: S_Ai00
+    _viewSpriteName: char02_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 2
+    _name: Char03
+    _viewModelName: char03
+    _pairSeatId: 0
+    _viewSpriteName: char03_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 3
+    _name: Char04
+    _viewModelName: char04
+    _pairSeatId: 0
+    _viewSpriteName: char04_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 4
+    _name: Char05
+    _viewModelName: char05
+    _pairSeatId: 0
+    _viewSpriteName: char05_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 5
+    _name: Char06
+    _viewModelName: char06
+    _pairSeatId: 0
+    _viewSpriteName: char06_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 6
+    _name: Char07
+    _viewModelName: char07
+    _pairSeatId: 0
+    _viewSpriteName: char07_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 7
+    _name: Char08
+    _viewModelName: char08
+    _pairSeatId: 0
+    _viewSpriteName: char08_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 8
+    _name: Char09
+    _viewModelName: char09
+    _pairSeatId: 0
+    _viewSpriteName: char09_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 9
+    _name: Char10
+    _viewModelName: char10
+    _pairSeatId: 0
+    _viewSpriteName: char10_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 10
+    _name: Char11
+    _viewModelName: char11
+    _pairSeatId: 0
+    _viewSpriteName: char11_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 11
+    _name: Char12
+    _viewModelName: char12
+    _pairSeatId: 0
+    _viewSpriteName: char12_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 12
+    _name: Char13
+    _viewModelName: char13
+    _pairSeatId: 0
+    _viewSpriteName: char13_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 13
+    _name: Char14
+    _viewModelName: char14
+    _pairSeatId: 0
+    _viewSpriteName: char14_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 14
+    _name: Char15
+    _viewModelName: char15
+    _pairSeatId: 0
+    _viewSpriteName: char15_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 15
+    _name: Char16
+    _viewModelName: char16
+    _pairSeatId: 0
+    _viewSpriteName: char16_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 16
+    _name: Char17
+    _viewModelName: char17
+    _pairSeatId: 0
+    _viewSpriteName: char17_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 17
+    _name: Char18
+    _viewModelName: char18
+    _pairSeatId: 0
+    _viewSpriteName: char18_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 18
+    _name: Char19
+    _viewModelName: char19
+    _pairSeatId: 0
+    _viewSpriteName: char19_S
+    _informationStringList:
+    - 0
+    - 00
+    _serviceBonusMoney: 0
+  - _id: 19
+    _name: Char20
+    _viewModelName: char20
+    _pairSeatId: 0
+    _viewSpriteName: char20_S
     _informationStringList:
     - 0
     - 00
