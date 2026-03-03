@@ -1,0 +1,26 @@
+using UnityEngine;
+
+public class SeatChildBinder: SeatParentReceiverListener
+{
+    Transform _seatTransform;
+
+    public SeatChildBinder(Transform _seatTransform)
+    {
+        this._seatTransform = _seatTransform;
+    }
+
+    public void ChildBinder()
+    {
+        UnityEngine.Debug.Log(4);
+        _getParentTransform = GetParentTransform;
+        _parentTransform = _getParentTransform.Invoke();
+
+        _seatTransform.SetParent(_parentTransform, false);
+    }
+
+    public override void Dispose()
+    {
+      base.Dispose();
+    }
+
+}

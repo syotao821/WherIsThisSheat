@@ -10,6 +10,9 @@ public class AiEventOrderer:IDisposable
     AiDataEventHub _aiDataEventHub;
     AiData _aiData;
     AiRunTimeData _aiRunTimeData;
+
+    AiData _aiNullData;
+    AiRunTimeData _aiNullRunTimeData;
     AiEventReciverHub _aiEventReciverHub;
     public AiEventOrderer()
     {
@@ -22,8 +25,12 @@ public class AiEventOrderer:IDisposable
     public void UpdateSelectAi(Transform _targetTransform,AiData _aiData,AiRunTimeData _aiRunTimeData)
     {
         this. _targetTransform = _toAiEventListener._toAiEventCallback.Invoke();
-        if(this._targetTransform==null)return;
-        Debug.Log(this._targetTransform);
+        if (this._targetTransform == null)
+        {
+            _aiEventReciverHub.RaiseOnReciverAiData(this._aiNullData);
+            _aiEventReciverHub.RaiseOnReciverAiRunTimeData(this._aiNullRunTimeData);
+            return;
+        }
         if(this._targetTransform== _targetTransform)
         {
             _aiDataEventHub.RaiseAiData(_aiData);
@@ -35,6 +42,7 @@ public class AiEventOrderer:IDisposable
             _aiEventReciverHub.RaiseOnReciverAiRunTimeData(this._aiRunTimeData);
 
         }
+       
     }
 
 

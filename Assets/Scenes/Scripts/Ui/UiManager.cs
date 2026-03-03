@@ -1,4 +1,4 @@
-﻿using Assets.Scenes.Scripts.Ui;
+using Assets.Scenes.Scripts.Ui;
 using UnityEngine;
 
 public class UiManager : MonoBehaviour,IGameInit
@@ -14,8 +14,7 @@ public class UiManager : MonoBehaviour,IGameInit
 	[SerializeField, Header("制限時間")] float timeLimitValue;
 	bool isClear = false;
 	bool isGameOver = false;
-
-	public int InitOrder => 4;
+	public int InitOrder => 6;
 
 	void IGameInit.GameInit()
 	{

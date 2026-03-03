@@ -15,9 +15,9 @@ public abstract class AiDataEventReciverListener : MonoBehaviour,IGameInit
 
     bool _disposed;
 
-    public int InitOrder =>3;
+    public int InitOrder =>5;
 
-    void IGameInit.GameInit()
+    public virtual void GameInit()
     {
         _aiEventReciverMessage = new AiEventReciverMessage();
         // イベント購読

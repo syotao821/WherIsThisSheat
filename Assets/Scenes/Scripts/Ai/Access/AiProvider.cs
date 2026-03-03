@@ -6,19 +6,18 @@ using UnityEngine;
 public class AiProvider:IDisposable
 {
     AiApplicationProvider _applicationProvider;
-    AiLogickIntegration _logickIntegration;
+    AiLogicProvider _aiLogicProvider;
     AiRunTimeData _runtimeData;
     AiEventOrderer _aiEventOrderer;
     AiData _aiData;
+
     public AiProvider(GameObject _aiObj, AiData _aiData)
     {
         _applicationProvider = new AiApplicationProvider(_aiObj);
-        _logickIntegration = new AiLogickIntegration(_aiObj.transform);
+        _aiLogicProvider = new AiLogicProvider(_aiObj.transform);
         _runtimeData=new AiRunTimeData();
         _aiEventOrderer=new AiEventOrderer();
         this._aiData = _aiData;
-       
-
     }
     
  
@@ -33,21 +32,28 @@ public class AiProvider:IDisposable
     /// </summary>
     /// <returns></returns>
     public AiApplicationProvider GetApplication() => _applicationProvider;
+
+
     /// <summary>
     /// ロジックのゲッター
     /// </summary>
     /// <returns></returns>
-    public AiLogickIntegration GetAiLogickIntegration() => _logickIntegration;
+    public AiLogicProvider GetAiLogickIntegration() => _aiLogicProvider;
+
+
     /// <summary>
     /// 静的データのゲッター
     /// </summary>
     /// <returns></returns>
     public AiData GetAiData() => _aiData;
+
+
     /// <summary>
     /// 動的データのゲッター
     /// </summary>
     /// <returns></returns>
     public AiRunTimeData GetRuntimeData() => _runtimeData;
+
 
     public void Dispose()
     {
