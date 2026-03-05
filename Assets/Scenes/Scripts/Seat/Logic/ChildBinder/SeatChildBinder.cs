@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SeatChildBinder: SeatParentReceiverListener
 {
@@ -15,7 +15,7 @@ public class SeatChildBinder: SeatParentReceiverListener
         _getParentTransform = GetParentTransform;
         _parentTransform = _getParentTransform.Invoke();
 
-        _seatTransform.SetParent(_parentTransform, false);
+        _seatTransform.SetParent(_parentTransform, true);
     }
 
     public override void Dispose()

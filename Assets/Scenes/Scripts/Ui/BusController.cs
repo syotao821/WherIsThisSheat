@@ -22,6 +22,8 @@ public class BusController : MonoBehaviour
 	public void SetStart()
 	{
 		animator = GetComponent<Animator>();
+
+		var test = new BussChildSet(this.transform);
 	}
 
 	/// <summary>

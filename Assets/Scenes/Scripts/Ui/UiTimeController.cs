@@ -34,6 +34,7 @@ namespace Assets.Scenes.Scripts.Ui
 				isTimeOver = true;
 				OnTimeOver?.Invoke();
 			}
+
 		}
 
 		public void SetTimeLimit(float _limitTime)
