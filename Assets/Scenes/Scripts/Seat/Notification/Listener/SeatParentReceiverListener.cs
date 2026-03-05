@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public abstract class SeatParentReceiverListener : IDisposable
@@ -16,7 +16,7 @@ public abstract class SeatParentReceiverListener : IDisposable
 
         _getParentTransform = GetParentTransform;
         _parentTransform = _getParentTransform.Invoke();
-        UnityEngine.Debug.Log(1);
+        //UnityEngine.Debug.Log(1);
     }
 
     public virtual void Dispose()

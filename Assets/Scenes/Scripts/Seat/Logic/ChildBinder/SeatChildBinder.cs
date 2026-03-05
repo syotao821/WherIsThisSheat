@@ -11,7 +11,7 @@ public class SeatChildBinder: SeatParentReceiverListener
 
     public void ChildBinder()
     {
-        UnityEngine.Debug.Log(4);
+        //UnityEngine.Debug.Log(4);
         _getParentTransform = GetParentTransform;
         _parentTransform = _getParentTransform.Invoke();
 

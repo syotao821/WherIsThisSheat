@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 /// <summary>
@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public abstract class SpawnGenerator<T> : MonoBehaviour where T : class
 {
-    static ObjectPool pool = new ObjectPool();
+    ObjectPool pool = new ObjectPool();
 
     protected virtual (GameObject obj, T logic) CreateNew(GameObject prefab,Vector3 position,Quaternion rotation, Func<GameObject, T> logicFactory) 
     {

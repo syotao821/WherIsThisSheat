@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 /// <summary>
 /// AIに関する総合的なアクセッサー
@@ -38,7 +38,7 @@ public class AiProvider:IDisposable
     /// ロジックのゲッター
     /// </summary>
     /// <returns></returns>
-    public AiLogicProvider GetAiLogickIntegration() => _aiLogicProvider;
+    public AiLogicProvider GetAiLogicProvider() => _aiLogicProvider;
 
 
     /// <summary>

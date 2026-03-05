@@ -5,7 +5,6 @@ public class UiManager : SingletonBehaviour<UiManager>,IGameInit
 {
 	public BusUiSlider busUiSlider;
 	public UiTimeController timeController;
-	public BusController busController;
 	public BusHassyaUiButton busHassyaUiButton;
 	public ResultManager resultManager;
 	public UiCharaInfomation uiCharaInfomation;
@@ -25,7 +24,6 @@ public class UiManager : SingletonBehaviour<UiManager>,IGameInit
 		//UI関係の初期化
 		busUiSlider.SetStart();
 		timeController.SetStart();
-		busController.SetStart();
 		busHassyaUiButton.SetStart();
 		resultManager.SetStart();
 		uiCharaInfomation.SetStart();

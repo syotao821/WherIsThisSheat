@@ -1,5 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 public class AiUpdater:MonoBehaviour,IGameInit
 {
 
@@ -12,7 +13,29 @@ public class AiUpdater:MonoBehaviour,IGameInit
         AiDiContainer.Register(this);
     }
 
-    public void InitDI(AiUpdaterEventListener _aiUpdaterEventListener)
+    void Start()
+    {
+		if (_updaterAiBaseList == null)
+			_updaterAiBaseList = _aiUpdaterEventListener._getAiBaseList.Invoke();
+
+		foreach (AiBase _aiBase in _updaterAiBaseList)
+		{
+			_aiBase.Start();
+		}
+
+        StartCoroutine(LateStart());
+	}
+        
+    IEnumerator LateStart()
+    {
+        yield return new WaitForSeconds(1.5f);
+		foreach (AiBase _aiBase in _updaterAiBaseList)
+		{
+			_aiBase.LateStart();
+		}
+	}
+
+	public void InitDI(AiUpdaterEventListener _aiUpdaterEventListener)
     {
         this._aiUpdaterEventListener = _aiUpdaterEventListener;
     }

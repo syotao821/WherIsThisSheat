@@ -1,9 +1,10 @@
+﻿using System;
 using UnityEngine;
 
 /// <summary>
 /// ロジックのアクセッサー
 /// </summary>
-public class AiLogicProvider
+public class AiLogicProvider: IDisposable
 {
     AiLogickIntegration _aiLogickIntegration;
 
@@ -11,4 +12,9 @@ public class AiLogicProvider
     {
         _aiLogickIntegration=new AiLogickIntegration(_aiTransform);
     }
+
+	public AiLogickIntegration GetAiLogickIntegration() => _aiLogickIntegration;
+
+	public void Dispose() => _aiLogickIntegration.Dispose();
+
 }

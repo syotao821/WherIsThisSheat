@@ -3,7 +3,7 @@
 /// <summary>
 /// バスのアニメーションを管理する
 /// </summary>
-public class BusController : MonoBehaviour
+public class BusController : MonoBehaviour,IGameInit
 {
 	public enum BUSANIMATION
 	{
@@ -18,12 +18,15 @@ public class BusController : MonoBehaviour
 	BUSANIMATION bUSANIMATION = BUSANIMATION.NONE;
 	Animator animator;
 
+	public int InitOrder => 7;
 
-	public void SetStart()
+	void IGameInit.GameInit()
 	{
 		animator = GetComponent<Animator>();
 
-		var test = new BussChildSet(this.transform);
+		//生成したシートとAIのオブジェクトをバスの子に入れる
+		BussChildSet test = new BussChildSet(this.transform);
+		UnityEngine.Debug.Log(3);
 	}
 
 	/// <summary>
@@ -67,4 +70,5 @@ public class BusController : MonoBehaviour
 	{
 		return bUSANIMATION;
 	}
+
 }

@@ -13,8 +13,18 @@ public class AiBase:IDisposable
         _aiProvider = new AiProvider(thisObj, _aiData);
         SetState(CreateStateById(_aiData.Id));
     }
+	public void Start()
+	{
+	}
 
-    public void Update()
+    public void LateStart()
+    {
+
+		_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ChildBinder();
+
+	}
+
+	public void Update()
     {
         _currentState.Update();
     }
@@ -23,6 +33,7 @@ public class AiBase:IDisposable
     {
         _currentState.Exit();
         _aiProvider.Dispose();
+        _aiProvider.GetAiLogicProvider().Dispose();
     }
 
 
