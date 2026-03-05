@@ -27,7 +27,7 @@ public class MouseRayCheckerPhysics
         Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red);
 
         // Ai レイヤーだけを対象に Raycast
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, _hitLayer))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, _hitLayer, QueryTriggerInteraction.Collide))
         {
             // 緑線でヒット可視化
             Debug.DrawLine(ray.origin, hit.point, Color.green);

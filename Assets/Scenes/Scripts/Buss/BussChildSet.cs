@@ -12,7 +12,6 @@ public class BussChildSet
 
         _seatParentReceiverEventHub = new SeatParentReceiverEventHub();
         _seatParentReceiverEventHub.RaiseOnSeatParent(this._bussTrans);
-        UnityEngine.Debug.Log(2);
 
     }
 
