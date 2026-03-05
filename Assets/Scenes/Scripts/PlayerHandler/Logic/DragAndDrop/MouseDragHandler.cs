@@ -58,26 +58,5 @@ public class MouseDragHandler
         return _draggedObject != null;
     }
 
-    /// <summary>
-    /// ドラッグ中でない時に、マウスが別オブジェクトに当たったら子付けする
-    /// </summary>
-    public void TryAttachToHitObject()
-    {
-        if (_draggedObject != null) return; // ドラッグ中は無視
-
-        ray = _camera.ScreenPointToRay(Input.mousePosition);
-
-        // attachLayer のみ判定
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, attachLayer))
-        {
-            Transform targetParent = hit.transform;
-
-            // すでに子になっていなければ子付け
-            if (_draggedObject != null && _draggedObject.parent != targetParent)
-            {
-                _draggedObject.parent = targetParent;
-                Debug.Log($"{_draggedObject.name} を {targetParent.name} の子にしました");
-            }
-        }
-    }
+    
 }

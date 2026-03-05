@@ -7,7 +7,6 @@ public class EventTest: AiDataEventReciverListener
     {
         base.GameInit();
         bussChildSet=new BussChildSet(this.transform);
-        UnityEngine.Debug.Log(3);
     }
     public void Update()
     {
