@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 /// <summary>
@@ -42,7 +42,8 @@ public class AiBase:IDisposable
     {
         switch (id)
         {
-            case 0: return new AiNormalStateAction(_aiProvider);
+            case 0:
+            case 5:
             case 1: return new AiNormalStateAction(_aiProvider);
             default: return new AiNormalStateAction(_aiProvider);
         }

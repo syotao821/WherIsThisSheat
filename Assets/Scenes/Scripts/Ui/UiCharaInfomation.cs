@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UiCharaInfomation : AiDataEventReciverListener
@@ -12,7 +13,7 @@ public class UiCharaInfomation : AiDataEventReciverListener
 	{
 		charaName = transform.GetChild(1).GetComponent<Text>();
 		charaInformationStrings = transform.GetChild(2).GetComponent<Text>();
-		charaImage = transform.GetChild(3).GetComponent<Image>();
+		charaImage = transform.GetChild(4).GetComponent<Image>();
 
 		InvokeRepeating("AiDataUpdate", 0, 0.1f);
 	}
@@ -20,16 +21,25 @@ public class UiCharaInfomation : AiDataEventReciverListener
 	/// <summary>
 	/// インフォメーションの内容をセットする関数
 	/// </summary>
-	public void SetCharaInformation(string _charaName,string _charaInformation,Image _charaIcon)
+	public void SetCharaInformation(string _charaName,List<string> _charaInformation,Sprite _charaIcon)
 	{
 		charaName.text = _charaName;
-		charaInformationStrings.text = _charaInformation;
-		charaImage.sprite = _charaIcon.sprite;
+		charaInformationStrings.text = "";
+		foreach (var information in _charaInformation)
+		{
+			charaInformationStrings.text += information + "\n";
+		}
+		charaImage.sprite = _charaIcon;
 	}
 
-	void AiDataUpdate()
+	public void AiDataUpdate()
 	{
+		if (UiManager.Instance.IsClear || UiManager.Instance.IsGameOver) return;
+		
 		_aiData = _getAiData.Invoke();
-		Debug.Log(_aiData.Name);
+
+		//情報がない場合は更新しない
+		if (_aiData.Name == null) return;
+		SetCharaInformation(_aiData.Name,_aiData.InformationStringList,_aiData.ViewSprite);
 	}
 }

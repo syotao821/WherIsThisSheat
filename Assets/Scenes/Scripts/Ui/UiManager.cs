@@ -1,7 +1,7 @@
-using Assets.Scenes.Scripts.Ui;
+﻿using Assets.Scenes.Scripts.Ui;
 using UnityEngine;
 
-public class UiManager : MonoBehaviour,IGameInit
+public class UiManager : SingletonBehaviour<UiManager>,IGameInit
 {
 	public BusUiSlider busUiSlider;
 	public UiTimeController timeController;
@@ -12,9 +12,13 @@ public class UiManager : MonoBehaviour,IGameInit
 
 	[SerializeField, Header("目標金額")] int clearScoreValue;
 	[SerializeField, Header("制限時間")] float timeLimitValue;
+
 	bool isClear = false;
 	bool isGameOver = false;
 	public int InitOrder => 6;
+
+	public bool IsClear { get => isClear;}
+	public bool IsGameOver { get => isGameOver;}
 
 	void IGameInit.GameInit()
 	{
