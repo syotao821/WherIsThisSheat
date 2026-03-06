@@ -32,16 +32,14 @@ public class UiManager : SingletonBehaviour<UiManager>,IGameInit
 		busUiSlider.onScoreOver += () =>
 		{
 			isClear = true;
-			Debug.Log("クリア");
-			resultManager.SetResultPanel(true);
+			resultManager.SetResultPanel(true,timeController.GetClearTime());
 		};
 
 		//残り時間が０になると呼ばれる
 		timeController.OnTimeOver += () =>
 		{
 			isGameOver = true;
-			Debug.Log("タイムオーバー");
-			resultManager.SetResultPanel(false);
+			resultManager.SetResultPanel(false, busUiSlider.GetBusScore().ToString("C"));
 		};
 
 		//目標金額を設定

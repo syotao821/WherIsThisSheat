@@ -15,6 +15,7 @@ public class UiCharaInfomation : AiDataEventReciverListener
 	AiData _aiData;
 	int currentInformationIndex = 0;//現在表示中の情報のインデックス
 	float writeSpeed = 1.3f;//ノベル風に表示する際の一文字あたりの表示時間
+	Tween moveTween;
 
 	public void SetStart()
 	{
@@ -34,15 +35,22 @@ public class UiCharaInfomation : AiDataEventReciverListener
 		charaImage.sprite = _charaIcon;
 
 		string informationTextAll = "";
-		charaInformationStrings.text = "";
 		//_charaInformationはリストのため、要素の間は改行する
 		foreach (var information in _charaInformation)
 		{
 			informationTextAll += information + "\n";
 		}
 
+
+		//文字送り実行中の場合は中断してから新しい文字送りを開始する
+		if (moveTween != null && moveTween.IsActive())
+		{
+			moveTween.Kill();
+		}
+		charaInformationStrings.text = "";
+
 		//ノベル風に一文字ずつ表示する
-		charaInformationStrings
+		moveTween = charaInformationStrings
 			.DOText(informationTextAll, writeSpeed)
 			.SetEase(Ease.Linear)
 			.SetLink(gameObject);

@@ -21,10 +21,10 @@ namespace Assets.Scenes.Scripts.Ui
 
 		void Update()
 		{
-			if (isTimeOver) return;
+			if (isTimeOver || UiManager.Instance.IsClear) return;
 
 			currentTime -= Time.deltaTime;
-			TimeSpan span = new TimeSpan(0, 0, (int)currentTime);
+			TimeSpan span = new TimeSpan(0, 0, (int)currentTime);//int hours, int minutes, int seconds
 			timeText.text = span.ToString(@"mm\:ss");
 			timerImage.fillAmount = Mathf.InverseLerp(limitTime * 60,0, currentTime);
 
@@ -48,6 +48,16 @@ namespace Assets.Scenes.Scripts.Ui
 		public float GetTimeLimit()
 		{
 			return currentTime;
+		}
+
+		/// <summary>
+		/// クリアタイムを取得する。残り時間を分:秒の形式で返す
+		/// </summary>
+		/// <returns></returns>
+		public string GetClearTime()
+		{
+			TimeSpan span = new TimeSpan(0, 0, (int)((limitTime * 60) - currentTime));
+			return span.ToString(@"mm\:ss");
 		}
 	}
 }
