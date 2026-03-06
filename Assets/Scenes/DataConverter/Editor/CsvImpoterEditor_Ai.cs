@@ -55,6 +55,7 @@ public class CsvImpoterEditor_Ai : Editor
 
             ai.InformationStringList = string.IsNullOrEmpty(infoCell)? new List<string>() : new List<string>(infoCell.Split('|'));
             ai.ServiceBonusMoney = int.Parse(columns[column++]);
+            ai.TextSpeed = float.Parse(columns[column++]);
             aiList.Add(ai);
 
 

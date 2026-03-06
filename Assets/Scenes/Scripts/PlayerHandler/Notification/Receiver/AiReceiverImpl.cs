@@ -8,7 +8,7 @@ class AiReceiverImpl : AiDataEventReciverListener
     public AiRunTimeData _aiRunTimeData;
 
 
-   public void Start()
+   public void GetData()
     {
         _aiData = _getAiData.Invoke();
         _aiRunTimeData= _getAiRunTaimeData.Invoke();

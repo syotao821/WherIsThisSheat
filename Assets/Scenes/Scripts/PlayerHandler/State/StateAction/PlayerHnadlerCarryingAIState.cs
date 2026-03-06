@@ -34,7 +34,6 @@ public class PlayerHnadlerCarryingAIState : IPlayerHandlerState
     public void Update()
     {
         _probider.GetPlayerHnadlerLogicProvider().HandlerMove();
-        _tagetTransform = _probider.GetPlayerHnadlerLogicProvider().GetHitTransform();
         if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputCarryingAi())
         {
             _rayEventHub.RaiseOnAiRayFire(_tagetTransform);
@@ -46,7 +45,7 @@ public class PlayerHnadlerCarryingAIState : IPlayerHandlerState
         {
             _rayEventHub.RaiseOnAiRayFire(null);
             _rayEventHub.RaiseOnSeatRayFire(null);
-            _playerHandler.SearchingAi();
+            _playerHandler.TalkingtoAi();
         }
 
     }

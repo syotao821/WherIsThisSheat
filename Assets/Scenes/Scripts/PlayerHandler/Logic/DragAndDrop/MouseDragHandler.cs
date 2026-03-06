@@ -39,8 +39,8 @@ public class MouseDragHandler: SeatParentReceiverListener
         _startPos= _draggedObject.position;
         _getParentTransform = GetParentTransform;
         _parentTransform = _getParentTransform.Invoke();
-        _aiReceiverImpl.Start();
-        _seatReceiverImpl.Start();
+        _aiReceiverImpl.GetData();
+        _seatReceiverImpl.GetData();
     }
 
     /// <summary>
@@ -60,8 +60,8 @@ public class MouseDragHandler: SeatParentReceiverListener
 
         if (Physics.SphereCast(ray, radius, out _hit, Mathf.Infinity, _attachLayer))
         {
-            _aiReceiverImpl.Start();
-            _seatReceiverImpl.Start();
+            _aiReceiverImpl.GetData();
+            _seatReceiverImpl.GetData();
             if (_hit.transform != _draggedObject)
             {
                 _draggedObject.position= _hit.transform.position;

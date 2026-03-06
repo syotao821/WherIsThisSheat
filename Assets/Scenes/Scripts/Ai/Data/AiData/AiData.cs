@@ -25,6 +25,8 @@ public struct AiData
     [Header("サービスしてくれるお金")]
     [SerializeField] int _serviceBonusMoney;
 
+    [Header("サービスしてくれるお金")]
+    [SerializeField] float _textSpeed;
     // ランタイム注入
     GameObject _viewModel;
     Sprite _viewSprite;
@@ -41,4 +43,5 @@ public struct AiData
     public GameObject ViewModel { get => _viewModel; set => _viewModel = value; }
     public Sprite ViewSprite { get => _viewSprite; set => _viewSprite = value; }
     public int ServiceBonusMoney { get => _serviceBonusMoney; set => _serviceBonusMoney = value; }
+    public float TextSpeed { get => _textSpeed; set => _textSpeed = value; }
 }
