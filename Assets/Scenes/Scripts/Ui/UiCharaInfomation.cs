@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -7,7 +7,7 @@ using DG.Tweening;
 /// お客さんの情報をUIで表示するクラス
 /// AiDataEventReciverListenerを継承しているため、AiDataの内容が更新されると自動でUIも更新される
 /// </summary>
-public class UiCharaInfomation : AiDataEventReciverListener
+public class UiCharaInfomation : AiDataEventReciverListenerMono
 {
 	Text charaName;
 	Text charaInformationStrings;

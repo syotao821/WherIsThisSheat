@@ -1,21 +1,33 @@
 using UnityEngine;
 
-public class MouseDragHandler
+public class MouseDragHandler: SeatParentReceiverListener
 {
+
+
     readonly Camera _camera;
+    const float MAX_DISTANCE = 5.0f;
+    float radius =1.0f;
     Plane _movePlane;
     Transform _draggedObject;
-    Vector3 hitPoint;
+    Transform _rayHitTransform;
+    Vector3 _hitPoint;
+    Vector3 _startPos;
+    float _distance;
     Ray ray;
-
+    RaycastHit _hit;
+    AiReceiverImpl _aiReceiverImpl;
+    SeatReceiverImpl _seatReceiverImpl;
     // 子付け対象のレイヤー
-    readonly LayerMask attachLayer;
+    readonly LayerMask _attachLayer;
 
     public MouseDragHandler()
     {
         _camera = Camera.main;
         _movePlane = new Plane(Vector3.up, Vector3.zero);
-        attachLayer = 1 << LayerMask.NameToLayer("Seat");
+        _attachLayer = 1 << LayerMask.NameToLayer("Seat");
+        _aiReceiverImpl=new AiReceiverImpl();
+        _seatReceiverImpl=new SeatReceiverImpl();
+
     }
 
     /// <summary>
@@ -24,6 +36,11 @@ public class MouseDragHandler
     public void StartDrag(Transform obj)
     {
         _draggedObject = obj;
+        _startPos= _draggedObject.position;
+        _getParentTransform = GetParentTransform;
+        _parentTransform = _getParentTransform.Invoke();
+        _aiReceiverImpl.Start();
+        _seatReceiverImpl.Start();
     }
 
     /// <summary>
@@ -37,9 +54,42 @@ public class MouseDragHandler
 
         if (_movePlane.Raycast(ray, out float enter))
         {
-            hitPoint = ray.GetPoint(enter);
-            _draggedObject.position = hitPoint;
+            _hitPoint = ray.GetPoint(enter);
+            _draggedObject.position = _hitPoint;
         }
+
+        if (Physics.SphereCast(ray, radius, out _hit, Mathf.Infinity, _attachLayer))
+        {
+            _aiReceiverImpl.Start();
+            _seatReceiverImpl.Start();
+            if (_hit.transform != _draggedObject)
+            {
+                _draggedObject.position= _hit.transform.position;
+
+                _rayHitTransform = _hit.transform;
+
+                Debug.DrawRay(ray.origin, ray.direction * 100f, Color.blue);
+
+
+                if (_aiReceiverImpl._aiRunTimeData != null)
+                {
+                    if (_seatReceiverImpl._seatData.PairAiId == _aiReceiverImpl._aiData.PairSeatId)
+                        _aiReceiverImpl._aiRunTimeData.IsCustomerSatisfied = true;
+
+                    else
+                        _aiReceiverImpl._aiRunTimeData.IsCustomerSatisfied = false;
+
+                    Debug.Log(_aiReceiverImpl._aiRunTimeData.IsCustomerSatisfied);
+
+                }
+            }
+           
+        }
+    }
+
+    public Transform GetSeatTransform()
+    {
+            return _rayHitTransform;
     }
 
     /// <summary>
@@ -47,7 +97,12 @@ public class MouseDragHandler
     /// </summary>
     public void EndDrag()
     {
+        _distance = Vector3.Distance(_parentTransform.position, _draggedObject.position);
+        if (_distance >= MAX_DISTANCE)
+            _draggedObject.position = _startPos;
         _draggedObject = null;
+        
+        _startPos = Vector3.zero;
     }
 
     /// <summary>
@@ -58,5 +113,11 @@ public class MouseDragHandler
         return _draggedObject != null;
     }
 
-    
+    public override void Dispose()
+    {
+         base.Dispose();
+        _aiReceiverImpl.OverRideDispose();
+        _seatReceiverImpl.Dispose();
+    }
+
 }

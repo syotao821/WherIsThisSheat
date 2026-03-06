@@ -39,4 +39,6 @@ public class PlayerHandlerLogicIntegration
     public void UpdateDrag()=>_mouseDragHandler.UpdateDrag();
     public void EndDrag() => _mouseDragHandler.EndDrag();
     public void IsDragging()=>_mouseDragHandler.IsDragging();
+    public Transform GetSeatTransform() => _mouseDragHandler.GetSeatTransform();
+    public void Dispose()=> _mouseDragHandler.Dispose();
 }

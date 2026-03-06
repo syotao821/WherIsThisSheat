@@ -1,5 +1,5 @@
 
-public class EventTest: AiDataEventReciverListener
+public class EventTest: AiDataEventReciverListenerMono
 {
     AiData AiData;
     BussChildSet bussChildSet;

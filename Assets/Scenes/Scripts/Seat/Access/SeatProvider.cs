@@ -8,13 +8,19 @@ public class SeatProvider  :IDisposable
     SeatApplicationProvider _applicationProvider;
     SeatLogicProvider _logicProvider;
     SeatData _seatData;
-    public SeatProvider(GameObject _aiObj, SeatData _aiData)
+    SeatEventOrderer _seatEventOrderer;
+    Transform _seatTransform;
+    public SeatProvider(GameObject _seatObj, SeatData _seatData)
     {
-        _applicationProvider = new SeatApplicationProvider(_aiObj);
-        _logicProvider = new SeatLogicProvider(_aiObj.transform);
-        this._seatData = _aiData;
+        _seatTransform=_seatObj.transform;
+        _applicationProvider = new SeatApplicationProvider(_seatObj);
+        _logicProvider = new SeatLogicProvider(_seatObj.transform);
+        _seatEventOrderer = new SeatEventOrderer();
+
+        this._seatData = _seatData;
     }
 
+    public void EventOderUpdate() => _seatEventOrderer.UpdateSelectSeat(_seatTransform, _seatData);
 
     /// <summary>
     /// アプリケーションのゲッター
@@ -41,9 +47,10 @@ public class SeatProvider  :IDisposable
     {
 
         _logicProvider.Dispose();
+        _seatEventOrderer.Dispose();
 
-    } 
-    
+    }
 
-     
+
+
 }
