@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 public abstract class AiParentReceiverListener : IDisposable
@@ -14,7 +14,6 @@ public abstract class AiParentReceiverListener : IDisposable
 		_aiParentReceiverMessage = new AiParentReceiverMessage();
 		AiParentReceiverEventHub._onAiPearentReceiver += SetParentTransform;
 
-		UnityEngine.Debug.Log(1);
 	}
 
 	public virtual void Dispose()

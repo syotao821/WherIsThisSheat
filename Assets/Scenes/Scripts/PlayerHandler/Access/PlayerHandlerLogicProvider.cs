@@ -22,4 +22,14 @@ public class PlayerHandlerLogicProvider
     /// </summary>
     /// <returns></returns>
     public bool GetIsRayHit() => _logicIntegration.GetIsRayHit();
+
+    public void StartDrag(Transform objTransform) => _logicIntegration.StartDrag(objTransform);
+    public void UpdateDrag() => _logicIntegration.UpdateDrag();
+    public void EndDrag() => _logicIntegration.EndDrag();
+    public void IsDragging() => _logicIntegration.IsDragging();
+    public Transform GetSeatTransform() => _logicIntegration.GetSeatTransform();
+
+    public void Dispose() => _logicIntegration.Dispose();
+
+
 }

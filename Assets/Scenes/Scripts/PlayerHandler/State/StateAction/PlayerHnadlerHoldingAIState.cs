@@ -5,7 +5,7 @@ public class PlayerHnadlerHoldingAIState : IPlayerHandlerState
 {
     PlayerHandlerProvider _probider;
     PlayerHandler _playerHandler;
-    public PLAYERHANDLERSTATE State => PLAYERHANDLERSTATE.SEARCHINGAI;
+    public PLAYERHANDLERSTATE State => PLAYERHANDLERSTATE.HOLDINGAI;
 
     public PlayerHnadlerHoldingAIState(PlayerHandler _playerHandler, PlayerHandlerProvider _probider)
     {

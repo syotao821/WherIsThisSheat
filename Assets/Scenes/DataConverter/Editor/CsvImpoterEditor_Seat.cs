@@ -47,7 +47,7 @@ public class CsvImpoterEditor_Seat : Editor
 
             seat.Id = int.Parse(columns[column++]);
             seat.Name = columns[column++];
-            seat.PairSeatId = int.Parse(columns[column++]);
+            seat.PairAiId = int.Parse(columns[column++]);
             seat.ViewModelName = columns[column++];
 
            

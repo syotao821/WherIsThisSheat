@@ -16,12 +16,12 @@ public class SeatBase:IDisposable
     }
     public void Update()
     {
-
+        _seatProvider.EventOderUpdate();
     }
 
     public void Dispose()
     {
 
-        _seatProvider.GetSeatLogickProvider().Dispose();
+        _seatProvider.Dispose();
     }
 }

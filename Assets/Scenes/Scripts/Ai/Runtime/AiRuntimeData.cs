@@ -3,7 +3,7 @@
 /// </summary>
 public class AiRunTimeData
 {
-    bool isRayHit;
+    bool _isCustomerSatisfied;
 
-    public bool IsRayHit { get => isRayHit; set => isRayHit = value; }
+    public bool IsCustomerSatisfied { get => _isCustomerSatisfied; set => _isCustomerSatisfied = value; }
 }

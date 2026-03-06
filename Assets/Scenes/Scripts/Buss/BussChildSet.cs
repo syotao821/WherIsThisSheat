@@ -1,4 +1,4 @@
-﻿
+
 
 using UnityEngine;
 
@@ -17,7 +17,6 @@ public class BussChildSet
 		_aiParentReceiverEventHub = new AiParentReceiverEventHub();
         _aiParentReceiverEventHub.RaiseOnAiParent(this._bussTrans);
 
-		UnityEngine.Debug.Log(2);
 
     }
 

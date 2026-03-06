@@ -6,7 +6,7 @@ public class PlayerHnadlerTalkingToAIState : IPlayerHandlerState
 
     PlayerHandlerProvider _probider;
     PlayerHandler _playerHandler;
-    public PLAYERHANDLERSTATE State => PLAYERHANDLERSTATE.SEARCHINGAI;
+    public PLAYERHANDLERSTATE State => PLAYERHANDLERSTATE.TALKINGTOAI;
 
     public PlayerHnadlerTalkingToAIState(PlayerHandler _playerHandler, PlayerHandlerProvider _probider)
     {
