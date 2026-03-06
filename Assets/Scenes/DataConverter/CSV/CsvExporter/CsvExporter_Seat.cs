@@ -36,7 +36,7 @@ public class CsvExporter_Seat : MonoBehaviour
         {
             sb.Append(seatData.Id).Append(",");
             sb.Append(seatData.Name).Append(",");
-            sb.Append(seatData.PairSeatId).Append(",");
+            sb.Append(seatData.PairAiId).Append(",");
             sb.Append(seatData.ViewModelName).Append(",");
             sb.AppendLine();
         }

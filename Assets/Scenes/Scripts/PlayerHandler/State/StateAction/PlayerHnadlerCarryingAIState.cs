@@ -1,3 +1,5 @@
+using UnityEngine;
+
 /// <summary>
 /// お客さんを運んでいるとき
 /// </summary>
@@ -5,11 +7,15 @@ public class PlayerHnadlerCarryingAIState : IPlayerHandlerState
 {
     PlayerHandlerProvider _probider;
     PlayerHandler _playerHandler;
-    public PLAYERHANDLERSTATE State => PLAYERHANDLERSTATE.SEARCHINGAI;
+    Transform _tagetTransform;
+    RayEventHub _rayEventHub;
+    public PLAYERHANDLERSTATE State => PLAYERHANDLERSTATE.CARRYINGAI;
 
     public PlayerHnadlerCarryingAIState(PlayerHandler _playerHandler, PlayerHandlerProvider _probider)
     {
         this._playerHandler = _playerHandler;
+        this._probider = _probider;
+        _rayEventHub=new RayEventHub();
     }
 
     /// <summary>
@@ -17,7 +23,9 @@ public class PlayerHnadlerCarryingAIState : IPlayerHandlerState
     /// </summary>
     public void Entry()
     {
-
+        _tagetTransform = _probider.GetPlayerHnadlerLogicProvider().GetHitTransform();
+        _probider.GetPlayerHnadlerLogicProvider().StartDrag(_tagetTransform);
+        
     }
 
     /// <summary>
@@ -26,6 +34,20 @@ public class PlayerHnadlerCarryingAIState : IPlayerHandlerState
     public void Update()
     {
         _probider.GetPlayerHnadlerLogicProvider().HandlerMove();
+        _tagetTransform = _probider.GetPlayerHnadlerLogicProvider().GetHitTransform();
+        if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputCarryingAi())
+        {
+            _rayEventHub.RaiseOnAiRayFire(_tagetTransform);
+            _probider.GetPlayerHnadlerLogicProvider().UpdateDrag();
+            _rayEventHub.RaiseOnSeatRayFire(_probider.GetPlayerHnadlerLogicProvider().GetSeatTransform());
+
+        }
+        else
+        {
+            _rayEventHub.RaiseOnAiRayFire(null);
+            _rayEventHub.RaiseOnSeatRayFire(null);
+            _playerHandler.SearchingAi();
+        }
 
     }
 
@@ -43,5 +65,7 @@ public class PlayerHnadlerCarryingAIState : IPlayerHandlerState
     /// </summary>
     public void Exit()
     {
+        _probider.GetPlayerHnadlerLogicProvider().EndDrag();
+
     }
 }

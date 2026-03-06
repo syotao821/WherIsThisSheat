@@ -9,14 +9,14 @@ public class ToAiEventListener: IDisposable
     public ToAiEventListener()
     {
         _toAieventMessage = new ToAiEventMessage();
-        RayEventHub._onRayFire += SetTargetTransform;
+        RayEventHub._onAiRayFire += SetTargetTransform;
 
         _toAiEventCallback = GetTargetTransform;
     }
 
     public void Dispose()
     {
-        RayEventHub._onRayFire -= SetTargetTransform;
+        RayEventHub._onAiRayFire -= SetTargetTransform;
 
     }
 

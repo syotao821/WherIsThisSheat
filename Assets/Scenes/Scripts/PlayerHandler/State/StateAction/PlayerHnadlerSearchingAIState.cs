@@ -8,13 +8,15 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
     PlayerHandlerProvider _probider;
     PlayerHandler _playerHandler;
     Transform _tagetTransform;
+    RayEventHub _rayEventHub;
+
     public PLAYERHANDLERSTATE State => PLAYERHANDLERSTATE.SEARCHINGAI;
 
     public PlayerHnadlerSearchingAIState(PlayerHandler _playerHandler, PlayerHandlerProvider _probider)
     {
         this._playerHandler = _playerHandler;
         this._probider = _probider;
-      
+        _rayEventHub=new RayEventHub();
     }
 
     /// <summary>
@@ -36,7 +38,7 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
 
         if (_probider.GetPlayerHnadlerLogicProvider().GetIsRayHit())
         {
-            RayEventHub.RaiseOnRayFire(_tagetTransform);
+            _rayEventHub.RaiseOnAiRayFire(_tagetTransform);
 
             if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
             {
@@ -44,12 +46,12 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
             }
             else
             {
-
+                _playerHandler.CarryingAi();
             }
         }
         else
         {
-            RayEventHub.RaiseOnRayFire(null);
+            _rayEventHub.RaiseOnAiRayFire(null);
         }
 
 

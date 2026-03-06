@@ -1,15 +1,24 @@
 using UnityEngine;
 
-public static class RayEventHub
+public  class RayEventHub
 {
-    public static event OnRayFire _onRayFire;
-    public delegate void OnRayFire(Transform _targetTransform);
+    public static event OnAiRayFire _onAiRayFire;
+    public delegate void OnAiRayFire(Transform _targetTransform);
 
- 
-    public static void RaiseOnRayFire(Transform _targetTransform)
-    {
-        _onRayFire?.Invoke(_targetTransform);
-    }
+    public static event OnSeatRayFire _onSeatRayFire;
+    public delegate void OnSeatRayFire(Transform _targetTransform);
+
 
    
+
+    public  void RaiseOnAiRayFire(Transform _targetTransform)
+    {
+        _onAiRayFire?.Invoke(_targetTransform);
+    }
+
+    public  void RaiseOnSeatRayFire(Transform _targetTransform)
+    {
+        _onSeatRayFire?.Invoke(_targetTransform);
+    }
+
 }

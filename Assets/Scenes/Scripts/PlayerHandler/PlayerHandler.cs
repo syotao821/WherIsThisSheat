@@ -18,12 +18,11 @@ public class PlayerHandler : MonoBehaviour, IGameInit
     void Update()=> _context.Update();
     void FixedUpdate()=> _context.FixedUpdate();
 
-
-
-    public void Searchingai() => SetState(PLAYERHANDLERSTATE.SEARCHINGAI);
-    public void Carryingai() => SetState(PLAYERHANDLERSTATE.CARRYINGAI);
-    public void Holdingai() => SetState(PLAYERHANDLERSTATE.HOLDINGAI);
-    public void Talkingtoai() => SetState(PLAYERHANDLERSTATE.TALKINGTOAI);
+    void OnDestroy()=> _probider.GetPlayerHnadlerLogicProvider().Dispose();
+    public void SearchingAi() => SetState(PLAYERHANDLERSTATE.SEARCHINGAI);
+    public void CarryingAi() => SetState(PLAYERHANDLERSTATE.CARRYINGAI);
+    public void HoldingAi() => SetState(PLAYERHANDLERSTATE.HOLDINGAI);
+    public void TalkingtoAi() => SetState(PLAYERHANDLERSTATE.TALKINGTOAI);
 
 
 
@@ -32,4 +31,5 @@ public class PlayerHandler : MonoBehaviour, IGameInit
         _context.ChangeState(state);
 
     }
+
 }

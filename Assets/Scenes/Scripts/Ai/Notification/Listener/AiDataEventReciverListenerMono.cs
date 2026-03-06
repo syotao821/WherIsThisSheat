@@ -1,5 +1,6 @@
 using System;
-public abstract class AiDataEventReciverListener : IDisposable
+using UnityEngine;
+public abstract class AiDataEventReciverListenerMono : MonoBehaviour,IGameInit
 {
 
 
@@ -14,8 +15,9 @@ public abstract class AiDataEventReciverListener : IDisposable
 
     bool _disposed;
 
+    public int InitOrder =>5;
 
-    public AiDataEventReciverListener()
+    public virtual void GameInit()
     {
         _aiEventReciverMessage = new AiEventReciverMessage();
         // イベント購読
@@ -26,13 +28,15 @@ public abstract class AiDataEventReciverListener : IDisposable
         _getAiData = GetAiData;
         _getAiRunTaimeData = GetAiRunTimeData;
     }
+ 
 
-
-    public void Dispose()
+    private void OnDestroy()
     {
         if (_disposed) return;
+
         AiEventReciverHub.onReciverAiData -= SetAiData;
         AiEventReciverHub.onReciverAiRunTimeData -= SetAiRunTimeData;
+
         _disposed = true;
     }
 
