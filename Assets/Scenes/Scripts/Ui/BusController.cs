@@ -26,7 +26,6 @@ public class BusController : MonoBehaviour,IGameInit
 
 		//生成したシートとAIのオブジェクトをバスの子に入れる
 		BussChildSet test = new BussChildSet(this.transform);
-		UnityEngine.Debug.Log(3);
 	}
 
 	/// <summary>

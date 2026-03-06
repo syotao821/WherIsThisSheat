@@ -11,7 +11,6 @@ public class AiChildBinder : AiParentReceiverListener
 
 	public void ChildBinder()
 	{
-		UnityEngine.Debug.Log(4);
 		_getParentTransform = GetParentTransform;
 		_parentTransform = _getParentTransform.Invoke();
 
