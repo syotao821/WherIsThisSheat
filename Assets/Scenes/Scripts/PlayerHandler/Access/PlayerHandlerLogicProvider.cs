@@ -28,7 +28,8 @@ public class PlayerHandlerLogicProvider
     public void EndDrag() => _logicIntegration.EndDrag();
     public void IsDragging() => _logicIntegration.IsDragging();
     public Transform GetSeatTransform() => _logicIntegration.GetSeatTransform();
-
+    public void AiSeatCheckAll() => _logicIntegration.AiSeatCheckAll();
+    public void AiSeatCheck() => _logicIntegration.AiSeatCheck();
     public void Dispose() => _logicIntegration.Dispose();
 
 

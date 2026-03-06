@@ -14,6 +14,7 @@ public class PlayerHandlerLogicIntegration
     readonly PlayerHandlerMove _playerHandlerMove;
     readonly MouseRayCheckerPhysics _mouseRayChecker;
     readonly MouseDragHandler _mouseDragHandler;
+    readonly MouseDropHandler _mouseDropHandler;
     public PlayerHandlerLogicIntegration(PlayerHandlerApplicationIntegration _playerHandlerApplicationIntegration, PlayerHandlerPresenter _playerHandlerPresenter)
     {
         this._playerHandlerApplicationIntegration = _playerHandlerApplicationIntegration;
@@ -28,6 +29,7 @@ public class PlayerHandlerLogicIntegration
         _playerHandlerMove = new PlayerHandlerMove(_playerHandlerRectTransform, _playerHandlerCanvas);
         _mouseRayChecker = new MouseRayCheckerPhysics();
         _mouseDragHandler = new MouseDragHandler();
+        _mouseDropHandler = new MouseDropHandler();
     }
 
     #region PlayerHandlerMove
@@ -40,5 +42,12 @@ public class PlayerHandlerLogicIntegration
     public void EndDrag() => _mouseDragHandler.EndDrag();
     public void IsDragging()=>_mouseDragHandler.IsDragging();
     public Transform GetSeatTransform() => _mouseDragHandler.GetSeatTransform();
-    public void Dispose()=> _mouseDragHandler.Dispose();
+    public void Dispose()
+    {
+        _mouseDragHandler.Dispose();
+        _mouseDropHandler.Dispose();
+    }
+    public void AiSeatCheckAll()=> _mouseDropHandler.AiSeatCheckAll();
+
+    public void AiSeatCheck()=>_mouseDropHandler.AiSeatCheck();
 }

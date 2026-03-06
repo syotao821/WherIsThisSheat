@@ -3,7 +3,7 @@ public class SeatReceiverImpl:SeatDataEventListener
     public SeatData _seatData;
 
 
-    public void Start()
+    public void GetData()
     {
         _seatData = _getSeatData.Invoke();
 
