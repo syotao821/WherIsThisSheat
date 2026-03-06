@@ -6,9 +6,9 @@
 public class AiAnimation
 {
     Animator _animator;
+	int currentAnimID = -1;
 
-
-    public AiAnimation(Animator _animator)
+	public AiAnimation(Animator _animator)
     {
         this._animator = _animator;
     }
@@ -31,35 +31,40 @@ public class AiAnimation
     public void Sitting2AnimPlay() => _animator.CrossFade(ANIM_NAME_SITTING_2, ANIM_FADE_TIME);
     public void Sitting3AnimPlay() => _animator.CrossFade(ANIM_NAME_SITTING_3, ANIM_FADE_TIME);
 
-
-    public void SelectAnimationPlay(int _animID)
+	public void SelectAnimationPlay(int _animID)
     {
-        switch (_animID)
+        if (_animID == currentAnimID) return;
+
+		switch (_animID)
         {
             case 0:
                 Idle0AnimPlay();
-                break;
+				break;
             case 1:
                 Idle1AnimPlay();
-                break;
+				break;
             case 2:
                 Idle2AnimPlay();
-                break;
+				break;
             case 3:
                 Sitting0AnimPlay();
-                break;
+				break;
             case 4:
                 Sitting1AnimPlay();
-                break;
+				break;
             case 5:
                 Sitting2AnimPlay();
-                break;
+				break;
             case 6:
                 Sitting3AnimPlay();
-                break;
+				break;
             default:
                 Debug.Log("アニメーションIDが不正です");
                 break;
         }
+
+		currentAnimID = _animID;
 	}
+
+
 }

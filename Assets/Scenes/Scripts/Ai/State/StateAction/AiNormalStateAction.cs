@@ -3,9 +3,9 @@
 public class AiNormalStateAction : IAiState
 {
     AiProvider _aiProvider;
-    static int _animNum = 1;
+    static int _animNum = 0;
     AiRunTimeData _runtimeData;
-
+    bool isSeatAnim = false;
 	public AiNormalStateAction(AiProvider provider)
     {
         _aiProvider = provider;
@@ -19,7 +19,7 @@ public class AiNormalStateAction : IAiState
         _animNum++;
         if(_animNum == 3)
         {
-            _animNum = 1;
+            _animNum = 0;
 		}
 	}
 
@@ -27,8 +27,52 @@ public class AiNormalStateAction : IAiState
     {
         // 通常の行動更新
         _aiProvider.UpdateEventOrderer();
+		Debug.Log("isSeatAnim "+isSeatAnim);
 
-		//_aiProvider.GetRuntimeData()
+		//座れる状態の時
+		if (_aiProvider.GetRuntimeData().IsSeated)
+        {
+            if(isSeatAnim)
+            {
+				isSeatAnim = false;
+
+				if (_animNum >= 0 && 4 > _animNum)
+				{
+					_animNum = 3;
+				}
+
+                _animNum++;
+
+				if (_animNum == 7)
+				{
+					_animNum = 3;
+				}
+			}
+			_aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
+
+
+		}
+		else
+        {
+			//座ってなかったら
+			if (!isSeatAnim)
+            {
+                _animNum++;
+				if (_animNum == 3)
+				{
+					_animNum = 0;
+				}
+
+				//１回しか流れてほしくないからフラグで管理
+				isSeatAnim = true;
+			}
+            
+            _aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
+
+			Debug.Log("座ってないときのアニメーションID "+_animNum);
+		}
+
+
 	}
 
     public void Exit()
