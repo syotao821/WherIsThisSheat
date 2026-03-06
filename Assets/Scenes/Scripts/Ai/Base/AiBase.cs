@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// AIの基本処理　（井町さんが触る場所）
@@ -32,6 +33,7 @@ public class AiBase:IDisposable
         SetState(CreateStateById(_aiData.Id));
 
 		_animator = thisObj.GetComponent<Animator>();
+        thisObj.transform.eulerAngles = new Vector3(306, 180, 357);//カメラのほうを向くように回転
 	}
 
 	public void Start()
