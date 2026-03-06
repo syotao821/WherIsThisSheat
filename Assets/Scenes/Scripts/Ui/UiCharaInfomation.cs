@@ -1,13 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
+/// <summary>
+/// お客さんの情報をUIで表示するクラス
+/// AiDataEventReciverListenerを継承しているため、AiDataの内容が更新されると自動でUIも更新される
+/// </summary>
 public class UiCharaInfomation : AiDataEventReciverListener
 {
 	Text charaName;
 	Text charaInformationStrings;
 	Image charaImage;
 	AiData _aiData;
+	int currentInformationIndex = 0;//現在表示中の情報のインデックス
+	float writeSpeed = 1.3f;//ノベル風に表示する際の一文字あたりの表示時間
 
 	public void SetStart()
 	{
@@ -24,13 +31,27 @@ public class UiCharaInfomation : AiDataEventReciverListener
 	public void SetCharaInformation(string _charaName,List<string> _charaInformation,Sprite _charaIcon)
 	{
 		charaName.text = _charaName;
+		charaImage.sprite = _charaIcon;
+
+		string informationTextAll = "";
 		charaInformationStrings.text = "";
+		//_charaInformationはリストのため、要素の間は改行する
 		foreach (var information in _charaInformation)
 		{
-			charaInformationStrings.text += information + "\n";
+			informationTextAll += information + "\n";
 		}
-		charaImage.sprite = _charaIcon;
+
+		//ノベル風に一文字ずつ表示する
+		charaInformationStrings
+			.DOText(informationTextAll, writeSpeed)
+			.SetEase(Ease.Linear)
+			.SetLink(gameObject);
+
+		//一気に全ての情報を表示する場合は以下のコードを使用する
+		//charaInformationStrings.text = informationTextAll;
 	}
+
+
 
 	public void AiDataUpdate()
 	{
@@ -40,6 +61,12 @@ public class UiCharaInfomation : AiDataEventReciverListener
 
 		//情報がない場合は更新しない
 		if (_aiData.Name == null) return;
+
+		//情報が現在表示中のものと同じ場合は更新しない
+		if (currentInformationIndex == _aiData.Id) return;
+
+		//表示する情報を更新する
+		currentInformationIndex = _aiData.Id;
 		SetCharaInformation(_aiData.Name,_aiData.InformationStringList,_aiData.ViewSprite);
 	}
 }

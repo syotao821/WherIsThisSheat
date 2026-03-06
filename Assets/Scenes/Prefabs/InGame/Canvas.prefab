@@ -537,8 +537,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 689.7333, y: 46.4726}
-  m_SizeDelta: {x: 398.8284, y: 311.4371}
+  m_AnchoredPosition: {x: 689.73, y: 0.0000038147}
+  m_SizeDelta: {x: 398.8284, y: 300.8951}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2753862887301068525
 CanvasRenderer:
@@ -570,12 +570,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c55f2c8f84f4b05449f92fdbd1cb6f6c, type: 3}
-    m_FontSize: 42
+    m_FontSize: 33
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 48
-    m_Alignment: 4
+    m_MinSize: 20
+    m_MaxSize: 42
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 3795099910264463784}
   - component: {fileID: 8541792069393684915}
   - component: {fileID: 1911480249141620913}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PlayerHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1450,7 +1450,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   busUiSlider: {fileID: 6997723167817560950}
   timeController: {fileID: 890151219338520358}
-  busController: {fileID: 0}
   busHassyaUiButton: {fileID: 9192752779158281324}
   resultManager: {fileID: 9110833511576241966}
   uiCharaInfomation: {fileID: 3371624878553803573}

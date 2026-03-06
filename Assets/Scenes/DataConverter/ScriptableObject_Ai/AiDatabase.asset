@@ -19,8 +19,8 @@ MonoBehaviour:
     _pairSeatId: 0
     _viewSpriteName: S_Ai00
     _informationStringList:
-    - 0
-    - 00
+    - "\u7A93\u969B\u304C\u826F\u3044"
+    - "\u51FA\u53E3\u306B\u8FD1\u3044\u307B\u3046\u304C\u826F\u3044"
     _serviceBonusMoney: 0
   - _id: 1
     _name: Chara1
@@ -28,8 +28,9 @@ MonoBehaviour:
     _pairSeatId: 0
     _viewSpriteName: S_Ai01
     _informationStringList:
-    - 0
-    - 01
+    - "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+    - "\u3046\u3046\u3046\u3046\u3046\u3046\u3046\u3046"
+    - "\u3044\u3044\u3044\u3044\u3044\u3044\u3044\u3044\u3044\u3044"
     _serviceBonusMoney: 1
   - _id: 2
     _name: Chara2
@@ -37,8 +38,8 @@ MonoBehaviour:
     _pairSeatId: 0
     _viewSpriteName: S_Ai02
     _informationStringList:
-    - 0
-    - 02
+    - "\u7A93\u969B\u304C\u826F\u3044"
+    - "\u51FA\u53E3\u306B\u8FD1\u3044\u307B\u3046\u304C\u826F\u3044"
     _serviceBonusMoney: 2
   - _id: 3
     _name: Chara3
