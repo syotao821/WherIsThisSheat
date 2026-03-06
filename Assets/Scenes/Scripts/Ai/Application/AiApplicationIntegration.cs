@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 public class AiApplicationIntegration
 {
     AiAnimation _aiAnimation;
@@ -41,7 +41,7 @@ public class AiApplicationIntegration
     #endregion
 
     #region アニメーション
-    public void GetIdleAnimPlay() => _aiAnimation.IdleAnimPlay();
+    public void SelectAnimationPlay(int _animeID) => _aiAnimation.SelectAnimationPlay(_animeID);
     #endregion
 
 }

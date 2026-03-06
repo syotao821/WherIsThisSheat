@@ -31,7 +31,7 @@ public class AiProvider:IDisposable
     /// アプリケーションのゲッター
     /// </summary>
     /// <returns></returns>
-    public AiApplicationProvider GetApplication() => _applicationProvider;
+    public AiApplicationProvider GetApplicationProvider() => _applicationProvider;
 
 
     /// <summary>
