@@ -9,7 +9,7 @@ public class AiLogickIntegration: IDisposable
 
     Transform _aiTransform;
 	AiChildBinder _aiChildBinder;
-
+	AiGroupInstance _aiGroupInstance;
 	/// <summary>
 	/// 初期化
 	/// </summary>
@@ -17,9 +17,12 @@ public class AiLogickIntegration: IDisposable
     {
         this._aiTransform = _aiTransform;
 		_aiChildBinder = new AiChildBinder(this._aiTransform);
+		_aiGroupInstance = new AiGroupInstance(this._aiTransform);
 	}
 
 	public void ChildBinder() => _aiChildBinder.ChildBinder();
+
+	public void AiWalk() => _aiGroupInstance.AiWalk();
 	public void Dispose()
 	{
 		_aiChildBinder.Dispose();

@@ -6,6 +6,7 @@ public class AiNormalStateAction : IAiState
     static int _animNum = 0;
     AiRunTimeData _runtimeData;
     bool isSeatAnim = false;
+	bool isGathering = false;
 	public AiNormalStateAction(AiProvider provider)
     {
         _aiProvider = provider;
@@ -21,12 +22,22 @@ public class AiNormalStateAction : IAiState
         {
             _animNum = 0;
 		}
+
+
 	}
 
 	public void Update()
     {
         // 通常の行動更新
         _aiProvider.UpdateEventOrderer();
+
+		//バス停に集まるのは初回のみ
+		if(!isGathering)
+		{
+			_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().AiWalk();
+			isGathering = true;
+		}
+
 		Debug.Log("isSeatAnim "+isSeatAnim);
 
 		//座れる状態の時

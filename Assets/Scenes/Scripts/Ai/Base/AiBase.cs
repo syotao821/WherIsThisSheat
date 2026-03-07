@@ -34,8 +34,6 @@ public class AiBase:IDisposable
 	public void Update()
     {
         _currentState.Update();
-
-
 	}
 
 	public void Dispose()
