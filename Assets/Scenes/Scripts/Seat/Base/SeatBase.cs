@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class SeatBase:IDisposable
@@ -8,13 +8,14 @@ public class SeatBase:IDisposable
     public SeatBase(GameObject _thisObj,SeatData _thisSeatData)
     {
         _seatProvider=new SeatProvider(_thisObj, _thisSeatData);
-        Debug.Log("席初期化完了");
+        _thisObj.transform.eulerAngles = new Vector3(0, 90, 0);//バス正面を向くように回転
+		Debug.Log("席初期化完了");
     }
     public void Start()
     {
         _seatProvider.GetSeatLogickProvider().GetSeatLogickIntegration().ChildBinder();
-    }
-    public void Update()
+	}
+	public void Update()
     {
         _seatProvider.EventOderUpdate();
     }
