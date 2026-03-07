@@ -35,6 +35,7 @@ public class AiNormalStateAction : IAiState
             if(isSeatAnim)
             {
 				isSeatAnim = false;
+				_aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().eulerAngles = new Vector3(0, 90, 0);//バス正面を向くように回転
 
 				if (_animNum >= 0 && 4 > _animNum)
 				{
@@ -62,6 +63,8 @@ public class AiNormalStateAction : IAiState
 				{
 					_animNum = 0;
 				}
+
+				_aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().eulerAngles = new Vector3(306, 180, 357);//カメラのほうを向くように回転
 
 				//１回しか流れてほしくないからフラグで管理
 				isSeatAnim = true;
