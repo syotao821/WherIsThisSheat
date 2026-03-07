@@ -22,6 +22,7 @@ MonoBehaviour:
     - "\u7A93\u969B\u304C\u826F\u3044"
     - "\u51FA\u53E3\u306B\u8FD1\u3044\u307B\u3046\u304C\u826F\u3044"
     _serviceBonusMoney: 0
+    _textSpeed: 1
   - _id: 1
     _name: Chara1
     _viewModelName: M_Ai01
@@ -32,6 +33,7 @@ MonoBehaviour:
     - "\u3046\u3046\u3046\u3046\u3046\u3046\u3046\u3046"
     - "\u3044\u3044\u3044\u3044\u3044\u3044\u3044\u3044\u3044\u3044"
     _serviceBonusMoney: 1
+    _textSpeed: 1.3
   - _id: 2
     _name: Chara2
     _viewModelName: M_Ai02
@@ -41,6 +43,7 @@ MonoBehaviour:
     - "\u7A93\u969B\u304C\u826F\u3044"
     - "\u51FA\u53E3\u306B\u8FD1\u3044\u307B\u3046\u304C\u826F\u3044"
     _serviceBonusMoney: 2
+    _textSpeed: 1.5
   - _id: 3
     _name: Chara3
     _viewModelName: M_Ai03
@@ -50,6 +53,7 @@ MonoBehaviour:
     - 0
     - 03
     _serviceBonusMoney: 3
+    _textSpeed: 0
   - _id: 4
     _name: Chara4
     _viewModelName: M_Ai04
@@ -59,6 +63,7 @@ MonoBehaviour:
     - 0
     - 04
     _serviceBonusMoney: 4
+    _textSpeed: 0
   - _id: 5
     _name: Chara5
     _viewModelName: M_Ai05
@@ -68,6 +73,7 @@ MonoBehaviour:
     - 0
     - 05
     _serviceBonusMoney: 5
+    _textSpeed: 0
   - _id: 6
     _name: Chara6
     _viewModelName: M_Ai06
@@ -77,6 +83,7 @@ MonoBehaviour:
     - 0
     - 06
     _serviceBonusMoney: 6
+    _textSpeed: 0
   - _id: 7
     _name: Chara7
     _viewModelName: M_Ai07
@@ -86,6 +93,7 @@ MonoBehaviour:
     - 0
     - 07
     _serviceBonusMoney: 7
+    _textSpeed: 0
   - _id: 8
     _name: Chara8
     _viewModelName: M_Ai08
@@ -95,6 +103,7 @@ MonoBehaviour:
     - 0
     - 08
     _serviceBonusMoney: 8
+    _textSpeed: 0
   - _id: 9
     _name: Chara9
     _viewModelName: M_Ai09
@@ -104,6 +113,7 @@ MonoBehaviour:
     - 0
     - 09
     _serviceBonusMoney: 9
+    _textSpeed: 0
   - _id: 10
     _name: Chara10
     _viewModelName: M_Ai10
@@ -113,6 +123,7 @@ MonoBehaviour:
     - 0
     - 10
     _serviceBonusMoney: 10
+    _textSpeed: 0
   - _id: 11
     _name: Chara11
     _viewModelName: M_Ai11
@@ -122,6 +133,7 @@ MonoBehaviour:
     - 0
     - 11
     _serviceBonusMoney: 11
+    _textSpeed: 0
   - _id: 12
     _name: Chara12
     _viewModelName: M_Ai12
@@ -131,6 +143,7 @@ MonoBehaviour:
     - 0
     - 12
     _serviceBonusMoney: 12
+    _textSpeed: 0
   - _id: 13
     _name: Chara13
     _viewModelName: M_Ai13
@@ -140,6 +153,7 @@ MonoBehaviour:
     - 0
     - 13
     _serviceBonusMoney: 13
+    _textSpeed: 0
   - _id: 14
     _name: Chara14
     _viewModelName: M_Ai14
@@ -149,6 +163,7 @@ MonoBehaviour:
     - 0
     - 14
     _serviceBonusMoney: 14
+    _textSpeed: 0
   - _id: 15
     _name: Chara15
     _viewModelName: M_Ai15
@@ -158,6 +173,7 @@ MonoBehaviour:
     - 0
     - 15
     _serviceBonusMoney: 15
+    _textSpeed: 0
   - _id: 16
     _name: Chara16
     _viewModelName: M_Ai16
@@ -167,6 +183,7 @@ MonoBehaviour:
     - 0
     - 16
     _serviceBonusMoney: 16
+    _textSpeed: 0
   - _id: 17
     _name: Chara17
     _viewModelName: M_Ai17
@@ -176,6 +193,7 @@ MonoBehaviour:
     - 0
     - 17
     _serviceBonusMoney: 17
+    _textSpeed: 0
   - _id: 18
     _name: Chara18
     _viewModelName: M_Ai18
@@ -185,6 +203,7 @@ MonoBehaviour:
     - 0
     - 18
     _serviceBonusMoney: 18
+    _textSpeed: 0
   - _id: 19
     _name: Chara19
     _viewModelName: M_Ai19
@@ -194,6 +213,7 @@ MonoBehaviour:
     - 0
     - 19
     _serviceBonusMoney: 19
+    _textSpeed: 0
   - _id: 20
     _name: Chara20
     _viewModelName: M_Ai20
@@ -203,3 +223,4 @@ MonoBehaviour:
     - 0
     - 20
     _serviceBonusMoney: 20
+    _textSpeed: 0

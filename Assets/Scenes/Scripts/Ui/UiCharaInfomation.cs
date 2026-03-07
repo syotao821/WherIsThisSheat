@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -14,7 +14,7 @@ public class UiCharaInfomation : AiDataEventReciverListenerMono
 	Image charaImage;
 	AiData _aiData;
 	int currentInformationIndex = 0;//現在表示中の情報のインデックス
-	float writeSpeed = 1.3f;//ノベル風に表示する際の一文字あたりの表示時間
+	//float writeSpeed = 1.3f;//ノベル風に表示する際の一文字あたりの表示時間
 	Tween moveTween;
 
 	public void SetStart()
@@ -51,7 +51,7 @@ public class UiCharaInfomation : AiDataEventReciverListenerMono
 
 		//ノベル風に一文字ずつ表示する
 		moveTween = charaInformationStrings
-			.DOText(informationTextAll, writeSpeed)
+			.DOText(informationTextAll, _aiData.TextSpeed)
 			.SetEase(Ease.Linear)
 			.SetLink(gameObject);
 
