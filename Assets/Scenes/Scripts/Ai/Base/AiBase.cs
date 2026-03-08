@@ -28,7 +28,8 @@ public class AiBase:IDisposable
 	/// </summary>
 	public void LateStart()
     {
-		_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ChildBinder();
+		//別のタイミングでバスの子オブジェクトにするため、ここでは呼ばない
+		//_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ChildBinder();
 	}
 
 	public void Update()

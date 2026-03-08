@@ -21,9 +21,18 @@ MonoBehaviour:
     - _standardId: 1
       _spawnOffset: {x: -5, y: 0, z: 0}
   - _groupId: 1
-    spawnPos: {x: -10, y: 0, z: 0}
+    spawnPos: {x: -20, y: 0, z: 0}
     _standardAiList:
     - _standardId: 3
       _spawnOffset: {x: 0, y: 0, z: 0}
     - _standardId: 4
+      _spawnOffset: {x: -5, y: 0, z: 0}
+  - _groupId: 2
+    spawnPos: {x: 20, y: 0, z: 0}
+    _standardAiList:
+    - _standardId: 5
+      _spawnOffset: {x: 0, y: 0, z: 0}
+    - _standardId: 6
+      _spawnOffset: {x: -5, y: 0, z: 0}
+    - _standardId: 7
       _spawnOffset: {x: -5, y: 0, z: 0}

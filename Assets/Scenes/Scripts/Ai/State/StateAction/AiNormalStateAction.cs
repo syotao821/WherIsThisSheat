@@ -4,7 +4,6 @@ public class AiNormalStateAction : IAiState
 {
     AiProvider _aiProvider;
     static int _animNum = 0;
-    AiRunTimeData _runtimeData;
     bool isSeatAnim = false;
 	bool isGathering = false;
 	int myGrouID = -1;
@@ -25,8 +24,29 @@ public class AiNormalStateAction : IAiState
             _animNum = 0;
 		}
 
+
+		//自身のグループIDを取得しておく（バス停に集まるのはグループ単位で行うため）
 		myGrouID = _aiProvider.GetAiSpawnData().GroupId;
 		Debug.Log("myGroupID " + myGrouID);
+
+		//バスのドアが開き終わったタイミングでイベント発火
+		//バスの子オブジェクトにセット
+		BusController.Instance.OnBussChildSet += () =>
+		{
+			if (UiManager.Instance.CheckAiGroup(myGrouID))
+			{
+				_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ChildBinder();
+				Debug.Log("バスの子オブジェクトにセットされました。");
+			}
+		};
+
+		//バスの発車して見えなくなったタイミングでイベント発火
+		//バスの子オブジェクトにセット
+		BusController.Instance.OnBussResetChildSet += () =>
+		{
+			_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ResetParent();
+			Debug.Log("バスの子オブジェクトから外されました。");
+		};
 	}
 
 	public void Update()
@@ -43,6 +63,7 @@ public class AiNormalStateAction : IAiState
 				isGathering = true;
 			}
 		}
+
 
 		//Debug.Log("isSeatAnim " + isSeatAnim);
 
@@ -97,6 +118,7 @@ public class AiNormalStateAction : IAiState
 
     public void Exit()
     {
-       
-    }
+		BusController.Instance.OnBussChildSet -= () => { };
+		BusController.Instance.OnBussResetChildSet -= () => { };
+	}
 }

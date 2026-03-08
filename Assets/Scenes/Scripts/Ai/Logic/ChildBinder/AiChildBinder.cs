@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AiChildBinder : AiParentReceiverListener
 {
@@ -15,6 +15,14 @@ public class AiChildBinder : AiParentReceiverListener
 		_parentTransform = _getParentTransform.Invoke();
 
 		_aiTransform.SetParent(_parentTransform, true);
+	}
+
+	/// <summary>
+	/// 子オブジェクトを解除
+	/// </summary>
+	public void ResetParent()
+	{
+		this._aiTransform.transform.parent = null;
 	}
 
 	public override void Dispose()

@@ -29,9 +29,10 @@ public class AiGroupInstance: AiBusStopGaterReceiverListener
 	/// <returns></returns>
 	Vector3 GatherPosRundom()
 	{
-		Vector3 pos = new Vector3(_busStopTransform.transform.localPosition.x + Random.Range(-3, 3),
+		//ランダムの範囲はバス停付近で、X座標は-8～3、Z座標は4～6の範囲で設定されている
+		Vector3 pos = new Vector3(_busStopTransform.transform.localPosition.x + Random.Range(-8f, 3f),//Z座標が変わる
 			0,
-			_busStopTransform.transform.localPosition.z/* + Random.Range(0f, 0)*/);
+			_busStopTransform.transform.localPosition.z + Random.Range(4f, 6f));//X座標が変わる
 		return pos;
 	}
 

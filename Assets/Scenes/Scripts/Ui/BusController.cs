@@ -1,9 +1,11 @@
+﻿using Assets.Scenes.Scripts.Ui;
+using System;
 using UnityEngine;
 
 /// <summary>
 /// バスのアニメーションを管理する
 /// </summary>
-public class BusController : MonoBehaviour,IGameInit
+public class BusController : SingletonBehaviour<BusController>,IGameInit
 {
 	public enum BUSANIMATION
 	{
@@ -17,6 +19,9 @@ public class BusController : MonoBehaviour,IGameInit
 
 	BUSANIMATION bUSANIMATION = BUSANIMATION.NONE;
 	Animator animator;
+	public event Action OnBussChildSet;
+	public event Action OnBussResetChildSet;
+
 
 	public int InitOrder => 7;
 
@@ -25,7 +30,8 @@ public class BusController : MonoBehaviour,IGameInit
 		animator = GetComponent<Animator>();
 
 		//生成したシートとAIのオブジェクトをバスの子に入れる
-		BussChildSet test = new BussChildSet(this.transform);
+		BussChildSet bussChildSet = new BussChildSet(this.transform);
+
 	}
 
 	/// <summary>
@@ -68,6 +74,22 @@ public class BusController : MonoBehaviour,IGameInit
 	public BUSANIMATION GetBusAnimation()
 	{
 		return bUSANIMATION;
+	}
+
+	/// <summary>
+	/// ドアがオープンした後にイベントで登録する
+	/// </summary>
+	public void SetDoorOpenInChild()
+	{
+		OnBussChildSet?.Invoke();
+	}
+
+	/// <summary>
+	/// バスが発車した後にイベントで登録する
+	/// </summary>
+	public void SetHassyaResetChild()
+	{
+		OnBussResetChildSet?.Invoke();
 	}
 
 }

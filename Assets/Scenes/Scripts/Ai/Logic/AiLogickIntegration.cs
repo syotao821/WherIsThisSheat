@@ -21,7 +21,7 @@ public class AiLogickIntegration: IDisposable
 	}
 
 	public void ChildBinder() => _aiChildBinder.ChildBinder();
-
+	public void ResetParent() => _aiChildBinder.ResetParent();
 	public void AiWalk() => _aiGroupInstance.AiWalk();
 	public void Dispose()
 	{
