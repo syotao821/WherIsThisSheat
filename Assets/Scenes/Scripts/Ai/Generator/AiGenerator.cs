@@ -1,4 +1,4 @@
-
+﻿
 using UnityEngine;
 
 /// <summary>
@@ -27,7 +27,8 @@ public class AiGenerator : SpawnGenerator<AiBase>,IGameInit
             foreach (StandardAi standardAi in spawnData.StandardAiList)
             {
                 (GameObject _aiObj, AiBase _aiBase) =
-                    CreateNew(loadAiData.AiDataBase.aiDataArray[standardAi.StandardId].ViewModel, spawnData.SpawnPos + standardAi.SpawnOffset, Quaternion.identity, aiObj => new AiBase(aiObj, loadAiData.AiDataBase.aiDataArray[standardAi.StandardId]));
+                    CreateNew(loadAiData.AiDataBase.aiDataArray[standardAi.StandardId].ViewModel, spawnData.SpawnPos + standardAi.SpawnOffset, Quaternion.identity, 
+                    aiObj => new AiBase(aiObj, loadAiData.AiDataBase.aiDataArray[standardAi.StandardId], spawnData));
                 _aiUpdaterListEventHub.RaiseOnAiBase(_aiBase);
             }
 

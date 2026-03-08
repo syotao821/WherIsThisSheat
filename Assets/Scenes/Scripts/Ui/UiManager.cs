@@ -12,12 +12,14 @@ public class UiManager : SingletonBehaviour<UiManager>,IGameInit
 	[SerializeField, Header("目標金額")] int clearScoreValue;
 	[SerializeField, Header("制限時間")] float timeLimitValue;
 
+	int currentAiGroup = 0;
 	bool isClear = false;
 	bool isGameOver = false;
 	public int InitOrder => 6;
 
 	public bool IsClear { get => isClear;}
 	public bool IsGameOver { get => isGameOver;}
+	public int CurrentAiGroup { get => currentAiGroup; set => currentAiGroup = value; }
 
 	void IGameInit.GameInit()
 	{
@@ -47,6 +49,27 @@ public class UiManager : SingletonBehaviour<UiManager>,IGameInit
 
 		//残り時間を設定
 		timeController.SetTimeLimit(timeLimitValue);
+	}
+
+	/// <summary>
+	/// 次のグループのAIを行動させるためにグループIDをインクリメント
+	/// </summary>
+	public void CountAiGroup()
+	{
+		currentAiGroup++;
+	}
+
+
+	/// <summary>
+	/// 現在のグループIDとAIのグループIDが同じかどうかを確認する関数。
+	/// 次のグループのAIを行動させるために使用する。
+	/// </summary>
+	/// <returns></returns>
+	public bool CheckAiGroup(int _myGroupID)
+	{
+		if (_myGroupID == currentAiGroup) return true;
+		
+		return false;
 	}
 
 	private void OnDestroy()

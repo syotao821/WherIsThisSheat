@@ -11,9 +11,9 @@ public class AiBase:IDisposable
     Transform _transform;
 
 
-	public AiBase(GameObject thisObj,AiData _aiData)
+	public AiBase(GameObject thisObj,AiData _aiData,AiSpawnData _aiSpawnData)
     {
-        _aiProvider = new AiProvider(thisObj, _aiData);
+        _aiProvider = new AiProvider(thisObj, _aiData, _aiSpawnData);
         SetState(CreateStateById(_aiData.Id));
 
 		_transform = thisObj.transform;

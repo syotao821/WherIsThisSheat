@@ -8,7 +8,6 @@ public class BusHassyaUiButton : MonoBehaviour
 {
 	Button hassyaButton;
 	BusController busController;
-
 	public void SetStart()
 	{
 		hassyaButton = GetComponent<Button>();
@@ -24,5 +23,7 @@ public class BusHassyaUiButton : MonoBehaviour
 	{
 		//ドア閉め→発車のアニメーション再生
 		busController.PlayBusAnimation(BusController.BUSANIMATION.CLOSEDOOR);
+
+		UiManager.Instance.CountAiGroup();
 	}
 }

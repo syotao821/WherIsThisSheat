@@ -10,15 +10,18 @@ public class AiProvider:IDisposable
     AiRunTimeData _runtimeData;
     AiEventOrderer _aiEventOrderer;
     AiData _aiData;
+    AiSpawnData _aiSpawnData;
 
-    public AiProvider(GameObject _aiObj, AiData _aiData)
+	public AiProvider(GameObject _aiObj, AiData _aiData, AiSpawnData _aiSpawnData)
     {
         _applicationProvider = new AiApplicationProvider(_aiObj);
         _aiLogicProvider = new AiLogicProvider(_aiObj.transform);
         _runtimeData=new AiRunTimeData();
         _aiEventOrderer=new AiEventOrderer();
         this._aiData = _aiData;
-    }
+        this._aiSpawnData = _aiSpawnData;
+
+	}
     
  
 
@@ -46,13 +49,13 @@ public class AiProvider:IDisposable
     /// </summary>
     /// <returns></returns>
     public AiData GetAiData() => _aiData;
+    public AiSpawnData GetAiSpawnData() => _aiSpawnData;
 
-
-    /// <summary>
-    /// 動的データのゲッター
-    /// </summary>
-    /// <returns></returns>
-    public AiRunTimeData GetRuntimeData() => _runtimeData;
+	/// <summary>
+	/// 動的データのゲッター
+	/// </summary>
+	/// <returns></returns>
+	public AiRunTimeData GetRuntimeData() => _runtimeData;
 
 
     public void Dispose()

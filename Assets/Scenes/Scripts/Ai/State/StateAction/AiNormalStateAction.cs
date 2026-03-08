@@ -7,6 +7,8 @@ public class AiNormalStateAction : IAiState
     AiRunTimeData _runtimeData;
     bool isSeatAnim = false;
 	bool isGathering = false;
+	int myGrouID = -1;
+
 	public AiNormalStateAction(AiProvider provider)
     {
         _aiProvider = provider;
@@ -23,7 +25,8 @@ public class AiNormalStateAction : IAiState
             _animNum = 0;
 		}
 
-
+		myGrouID = _aiProvider.GetAiSpawnData().GroupId;
+		Debug.Log("myGroupID " + myGrouID);
 	}
 
 	public void Update()
@@ -32,13 +35,16 @@ public class AiNormalStateAction : IAiState
         _aiProvider.UpdateEventOrderer();
 
 		//バス停に集まるのは初回のみ
-		if(!isGathering)
+		if (UiManager.Instance.CheckAiGroup(myGrouID))
 		{
-			_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().AiWalk();
-			isGathering = true;
+			if (!isGathering)
+			{
+				_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().AiWalk();
+				isGathering = true;
+			}
 		}
 
-		Debug.Log("isSeatAnim "+isSeatAnim);
+		//Debug.Log("isSeatAnim " + isSeatAnim);
 
 		//座れる状態の時
 		if (_aiProvider.GetRuntimeData().IsSeated)
@@ -83,7 +89,7 @@ public class AiNormalStateAction : IAiState
             
             _aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
 
-			Debug.Log("座ってないときのアニメーションID "+_animNum);
+			//Debug.Log("座ってないときのアニメーションID "+_animNum);
 		}
 
 

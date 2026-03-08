@@ -29,9 +29,9 @@ public class AiGroupInstance: AiBusStopGaterReceiverListener
 	/// <returns></returns>
 	Vector3 GatherPosRundom()
 	{
-		Vector3 pos = new Vector3(_busStopTransform.transform.position.x + Random.Range(-5f, 5f),
+		Vector3 pos = new Vector3(_busStopTransform.transform.localPosition.x + Random.Range(-3, 3),
 			0,
-			_busStopTransform.transform.position.z + Random.Range(-2, 2));
+			_busStopTransform.transform.localPosition.z/* + Random.Range(0f, 0)*/);
 		return pos;
 	}
 
