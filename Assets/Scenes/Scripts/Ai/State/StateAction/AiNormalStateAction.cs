@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AiNormalStateAction : IAiState
 {
@@ -29,7 +29,7 @@ public class AiNormalStateAction : IAiState
 		{
 			if (UiManager.Instance.CheckAiGroup(myGrouID))
 			{
-				_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ChildBinder();
+				//_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ChildBinder();
 			}
 		};
 
