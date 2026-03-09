@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class AiNormalStateAction : IAiState
 {
     AiProvider _aiProvider;
-    static int _animNum = 0;
+	int _animNum=Random.Range(0,3);
     bool isSeatAnim = false;
 	bool isGathering = false;
 	int myGrouID = -1;
-
+	Vector3 seatScale = new Vector3(0.7f, 0.7f, 0.7f);
 	public AiNormalStateAction(AiProvider provider)
     {
         _aiProvider = provider;
@@ -18,12 +18,7 @@ public class AiNormalStateAction : IAiState
     {
 		_aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().eulerAngles = new Vector3(306, 180, 357);//カメラのほうを向くように回転
         _aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
-        _animNum++;
-        if(_animNum == 3)
-        {
-            _animNum = 0;
-		}
-
+      
 
 		//自身のグループIDを取得しておく（バス停に集まるのはグループ単位で行うため）
 		myGrouID = _aiProvider.GetAiSpawnData().GroupId;
@@ -61,54 +56,56 @@ public class AiNormalStateAction : IAiState
 			}
 		}
 
+		if (_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().IsSeat())
+		{
+			_aiProvider.GetRuntimeData().IsSeated = true;
+		}
+		else
+		{
+            _aiProvider.GetRuntimeData().IsSeated = false;
 
-		//Debug.Log("isSeatAnim " + isSeatAnim);
+        }
 
-		//座れる状態の時
-		if (_aiProvider.GetRuntimeData().IsSeated)
-        {
-            if(isSeatAnim)
-            {
+        //座れる状態の時
+        if (_aiProvider.GetRuntimeData().IsSeated)
+		{
+            _animNum = Random.Range(3, 7);
+
+            if (isSeatAnim)
+			{
 				isSeatAnim = false;
 				_aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().eulerAngles = new Vector3(0, 90, 0);//バス正面を向くように回転
 
-				if (_animNum >= 0 && 4 > _animNum)
-				{
-					_animNum = 3;
-				}
+                _aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
 
-                _animNum++;
-
-				if (_animNum == 7)
-				{
-					_animNum = 3;
-				}
-			}
-			_aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
+                _aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().localScale = seatScale;
 
 
-		}
+            }
+
+
+        }
 		else
-        {
+		{
+
 			//座ってなかったら
 			if (!isSeatAnim)
-            {
-                _animNum++;
-				if (_animNum == 3)
-				{
-					_animNum = 0;
-				}
+			{
 
-				_aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().eulerAngles = new Vector3(306, 180, 357);//カメラのほうを向くように回転
+                _animNum = Random.Range(0, 3);
+
+                _aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().eulerAngles = new Vector3(306, 180, 357);//カメラのほうを向くように回転
 
 				//１回しか流れてほしくないからフラグで管理
 				isSeatAnim = true;
-			}
-            
-            _aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
+                _aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
 
-			//Debug.Log("座ってないときのアニメーションID "+_animNum);
-		}
+                _aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().localScale = Vector3.one;
+
+            }
+
+
+        }
 
 
 	}
