@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 public class SeatBase:IDisposable
@@ -8,7 +8,7 @@ public class SeatBase:IDisposable
 
 	public SeatBase(GameObject _thisObj,SeatData _thisSeatData,SeatSpawnData _thisSeatSpawnData)
     {
-        _seatProvider=new SeatProvider(_thisObj, _thisSeatData, _thisSeatSpawnData);
+        _seatProvider =new SeatProvider(_thisObj, _thisSeatData, _thisSeatSpawnData);
         _thisObj.transform.eulerAngles = new Vector3(0, 90, 0);//バス正面を向くように回転
     }
     public void Start()

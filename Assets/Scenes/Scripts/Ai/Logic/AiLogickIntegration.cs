@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using UnityEngine;
 /// <summary>
@@ -20,9 +20,13 @@ public class AiLogickIntegration: IDisposable
 		_aiGroupInstance = new AiGroupInstance(this._aiTransform);
 	}
 
-	public void ChildBinder() => _aiChildBinder.ChildBinder();
+
+
+    public void ChildBinder() => _aiChildBinder.ChildBinder();
 	public void ResetParent() => _aiChildBinder.ResetParent();
-	public void AiWalk() => _aiGroupInstance.AiWalk();
+    public bool IsSeat() => _aiChildBinder.IsSeat();
+
+    public void AiWalk() => _aiGroupInstance.AiWalk();
 	public void Dispose()
 	{
 		_aiChildBinder.Dispose();

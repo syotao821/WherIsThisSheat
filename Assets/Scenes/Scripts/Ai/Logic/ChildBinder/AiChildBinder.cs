@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class AiChildBinder : AiParentReceiverListener
 {
@@ -15,6 +15,15 @@ public class AiChildBinder : AiParentReceiverListener
 		_parentTransform = _getParentTransform.Invoke();
 
 		_aiTransform.SetParent(_parentTransform, true);
+	}
+
+	public bool IsSeat()
+	{
+		if(_aiTransform.parent!= _parentTransform)
+		{
+			return true;
+		}
+		return false;
 	}
 
 	/// <summary>
