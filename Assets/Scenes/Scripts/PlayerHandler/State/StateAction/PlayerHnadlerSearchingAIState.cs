@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// お客さんを探しているとき
@@ -40,10 +41,11 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
         {
             _rayEventHub.RaiseOnAiRayFire(_tagetTransform);
 
-            if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
+            //カーソル切り替え
+			_probider.GetPlayerHandlerPresenter().SetSprite(_playerHandler.GetComponent<Image>(),1);
+			if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputSearchingAi())
             {
-               
-            }
+			}
             else
             {
                 _playerHandler.CarryingAi();
@@ -52,10 +54,13 @@ public class PlayerHnadlerSearchingAIState : IPlayerHandlerState
         else
         {
             _rayEventHub.RaiseOnAiRayFire(null);
-        }
+
+			//カーソル切り替え
+			_probider.GetPlayerHandlerPresenter().SetSprite(_playerHandler.GetComponent<Image>(), 0);
+		}
 
 
-    }
+	}
 
 
     /// <summary>

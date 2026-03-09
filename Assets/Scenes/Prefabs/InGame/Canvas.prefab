@@ -1444,7 +1444,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view:
-    _handSprite: {fileID: 21300000, guid: f0d24ec9a1d6c81478b442177eb03719, type: 3}
+    _handSprite:
+    - {fileID: 1338065646, guid: 5f2d964a41638e74398a0ab0bcf11da8, type: 3}
+    - {fileID: -272162715, guid: 5f2d964a41638e74398a0ab0bcf11da8, type: 3}
+    - {fileID: -1745366718, guid: 5f2d964a41638e74398a0ab0bcf11da8, type: 3}
+    - {fileID: 1246913009, guid: 5f2d964a41638e74398a0ab0bcf11da8, type: 3}
     _canvas: {fileID: 8356503476765110245}
 --- !u!95 &3795099910264463784
 Animator:
@@ -1800,7 +1804,7 @@ MonoBehaviour:
   resultManager: {fileID: 9110833511576241966}
   uiCharaInfomation: {fileID: 3371624878553803573}
   clearScoreValue: 3000
-  timeLimitValue: 0.5
+  timeLimitValue: 1000
 --- !u!1 &5414631750307855672
 GameObject:
   m_ObjectHideFlags: 0
