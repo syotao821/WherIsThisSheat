@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 /// <summary>
 /// Seatに関する総合的なアクセッサー
@@ -8,9 +8,10 @@ public class SeatProvider  :IDisposable
     SeatApplicationProvider _applicationProvider;
     SeatLogicProvider _logicProvider;
     SeatData _seatData;
-    SeatEventOrderer _seatEventOrderer;
+    SeatSpawnData _seatSpawnData;
+	SeatEventOrderer _seatEventOrderer;
     Transform _seatTransform;
-    public SeatProvider(GameObject _seatObj, SeatData _seatData)
+    public SeatProvider(GameObject _seatObj, SeatData _seatData, SeatSpawnData _thisSeatSpawnData)
     {
         _seatTransform=_seatObj.transform;
         _applicationProvider = new SeatApplicationProvider(_seatObj);
@@ -18,7 +19,8 @@ public class SeatProvider  :IDisposable
         _seatEventOrderer = new SeatEventOrderer();
 
         this._seatData = _seatData;
-    }
+        this._seatSpawnData = _thisSeatSpawnData;
+	}
 
     public void EventOderUpdate() => _seatEventOrderer.UpdateSelectSeat(_seatTransform, _seatData);
 
@@ -39,11 +41,12 @@ public class SeatProvider  :IDisposable
     /// </summary>
     /// <returns></returns>
     public SeatData GetSeatData() => _seatData;
+    public SeatSpawnData GetSeatSpawnData() => _seatSpawnData;
 
-    /// <summary>
-    /// イベントの破棄
-    /// </summary>
-    public void Dispose()
+	/// <summary>
+	/// イベントの破棄
+	/// </summary>
+	public void Dispose()
     {
 
         _logicProvider.Dispose();

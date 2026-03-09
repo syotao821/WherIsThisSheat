@@ -27,7 +27,6 @@ public class AiNormalStateAction : IAiState
 
 		//自身のグループIDを取得しておく（バス停に集まるのはグループ単位で行うため）
 		myGrouID = _aiProvider.GetAiSpawnData().GroupId;
-		Debug.Log("myGroupID " + myGrouID);
 
 		//バスのドアが開き終わったタイミングでイベント発火
 		//バスの子オブジェクトにセット
@@ -36,7 +35,6 @@ public class AiNormalStateAction : IAiState
 			if (UiManager.Instance.CheckAiGroup(myGrouID))
 			{
 				_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ChildBinder();
-				Debug.Log("バスの子オブジェクトにセットされました。");
 			}
 		};
 
@@ -45,7 +43,6 @@ public class AiNormalStateAction : IAiState
 		BusController.Instance.OnBussResetChildSet += () =>
 		{
 			_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ResetParent();
-			Debug.Log("バスの子オブジェクトから外されました。");
 		};
 	}
 

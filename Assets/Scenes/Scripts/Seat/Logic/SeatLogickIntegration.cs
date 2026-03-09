@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using UnityEngine;
 /// <summary>
@@ -18,8 +18,9 @@ public class SeatLogickIntegration:IDisposable
         _seatChildBinder=new SeatChildBinder(_seatTransform);
     }
     public void ChildBinder()=> _seatChildBinder.ChildBinder();
+    public void ResetParent()=> _seatChildBinder.ResetParent();
 
-    public void Dispose()
+	public void Dispose()
     {
         _seatChildBinder.Dispose();
     }

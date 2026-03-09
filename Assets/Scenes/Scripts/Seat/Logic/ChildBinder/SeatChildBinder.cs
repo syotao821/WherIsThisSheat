@@ -11,14 +11,18 @@ public class SeatChildBinder: SeatParentReceiverListener
 
     public void ChildBinder()
     {
-        //UnityEngine.Debug.Log(4);
         _getParentTransform = GetParentTransform;
         _parentTransform = _getParentTransform.Invoke();
 
         _seatTransform.SetParent(_parentTransform, true);
     }
 
-    public override void Dispose()
+    public void ResetParent()
+    {
+        _seatTransform.transform.parent = null;
+	}
+
+	public override void Dispose()
     {
       base.Dispose();
     }

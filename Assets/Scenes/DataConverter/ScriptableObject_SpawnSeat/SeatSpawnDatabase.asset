@@ -17,17 +17,30 @@ MonoBehaviour:
     spawnPos: {x: 0, y: 0, z: 0}
     _standardSeatList:
     - _standardId: 1
-      _spawnOffset: {x: -6.56, y: 0.35, z: 7.12}
+      _spawnOffset: {x: -33.36, y: 0.35, z: 6.47}
     - _standardId: 2
-      _spawnOffset: {x: -6.52, y: 0.35, z: 4.98}
+      _spawnOffset: {x: -33.36, y: 0.35, z: 5.48}
     - _standardId: 3
-      _spawnOffset: {x: -6.49, y: 0.35, z: 3.22}
+      _spawnOffset: {x: -33.36, y: 0.35, z: 4.52}
   - _groupId: 1
-    spawnPos: {x: -10, y: 0, z: 0}
+    spawnPos: {x: 0, y: 0, z: 0}
     _standardSeatList:
     - _standardId: 1
-      _spawnOffset: {x: -6.56, y: 0.35, z: 7.12}
+      _spawnOffset: {x: -36.3, y: 0.35, z: 6.47}
     - _standardId: 2
-      _spawnOffset: {x: -6.52, y: 0.35, z: 4.98}
+      _spawnOffset: {x: -36.3, y: 0.35, z: 4.79}
     - _standardId: 3
-      _spawnOffset: {x: -6.49, y: 0.35, z: 3.22}
+      _spawnOffset: {x: -31.26, y: 0.35, z: 6.47}
+    - _standardId: 4
+      _spawnOffset: {x: -31.26, y: 0.35, z: 4.79}
+  - _groupId: 2
+    spawnPos: {x: 0, y: 0, z: 0}
+    _standardSeatList:
+    - _standardId: 1
+      _spawnOffset: {x: -31.09, y: 0.35, z: 6.47}
+    - _standardId: 2
+      _spawnOffset: {x: -32.5, y: 0.35, z: 6.47}
+    - _standardId: 3
+      _spawnOffset: {x: -33.3, y: 0.35, z: 6.47}
+    - _standardId: 4
+      _spawnOffset: {x: -33.55, y: 0.35, z: 3.9}

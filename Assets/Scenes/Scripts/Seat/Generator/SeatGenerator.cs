@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 public class SeatGenerator : SpawnGenerator<SeatBase>, IGameInit
 {
     public int InitOrder =>4;
@@ -24,7 +24,7 @@ public class SeatGenerator : SpawnGenerator<SeatBase>, IGameInit
                         _loadSeatData.SeatDataBase._seatDataArray[standardSeat.StandardId].ViewModel,
                         spawnData.SpawnPos + standardSeat.SpawnOffset,
                         Quaternion.identity, 
-                        seatObj => new SeatBase(seatObj, _loadSeatData.SeatDataBase._seatDataArray[standardSeat.StandardId])
+                        seatObj => new SeatBase(seatObj, _loadSeatData.SeatDataBase._seatDataArray[standardSeat.StandardId], spawnData)
                     );
                 _seatUpdaterEventHub.RaiseOnSeatParent(_seatBase);
 

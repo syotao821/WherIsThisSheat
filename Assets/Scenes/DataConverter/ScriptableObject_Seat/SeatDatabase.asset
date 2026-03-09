@@ -29,3 +29,7 @@ MonoBehaviour:
     _name: 
     _viewModelName: M_Seat01
     _pairSeatId: 0
+  - _id: 4
+    _name: 
+    _viewModelName: M_Seat01
+    _pairSeatId: 0

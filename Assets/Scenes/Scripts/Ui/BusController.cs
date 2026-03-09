@@ -1,5 +1,4 @@
-﻿using Assets.Scenes.Scripts.Ui;
-using System;
+﻿using System;
 using UnityEngine;
 
 /// <summary>
@@ -21,7 +20,7 @@ public class BusController : SingletonBehaviour<BusController>,IGameInit
 	Animator animator;
 	public event Action OnBussChildSet;
 	public event Action OnBussResetChildSet;
-
+	public event Action OnBussTeisyaStartSet;
 
 	public int InitOrder => 7;
 
@@ -92,4 +91,11 @@ public class BusController : SingletonBehaviour<BusController>,IGameInit
 		OnBussResetChildSet?.Invoke();
 	}
 
+	/// <summary>
+	/// バスが停車アニメーションを再生を開始したタイミングでイベントで登録する
+	/// </summary>
+	public void SetTeisyaStart()
+	{
+		OnBussTeisyaStartSet?.Invoke();
+	}
 }
