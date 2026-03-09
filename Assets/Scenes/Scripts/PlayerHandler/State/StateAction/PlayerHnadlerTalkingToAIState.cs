@@ -1,6 +1,7 @@
-#define ALL_SEAT_ANIM
+﻿#define ALL_SEAT_ANIM
 
 using UnityEngine;
+using UnityEngine.UI;
 /// <summary>
 /// お客さんを離したとき
 /// </summary>
@@ -29,8 +30,11 @@ public class PlayerHnadlerTalkingToAIState : IPlayerHandlerState
         _tagetTransform = _probider.GetPlayerHnadlerLogicProvider().GetHitTransform();
         _rayEventHub.RaiseOnAiRayFire(_tagetTransform);
 
+		//カーソル切り替え
+		_probider.GetPlayerHandlerPresenter().SetSprite(_playerHandler.GetComponent<Image>(), 3);
+
 #if ALL_SEAT_ANIM
-        _probider.GetPlayerHnadlerLogicProvider().AiSeatCheckAll();
+		_probider.GetPlayerHnadlerLogicProvider().AiSeatCheckAll();
 #else
         _probider.GetPlayerHnadlerLogicProvider().AiSeatCheck();
 

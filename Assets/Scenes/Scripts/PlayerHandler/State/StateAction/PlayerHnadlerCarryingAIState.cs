@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// お客さんを運んでいるとき
@@ -34,21 +35,24 @@ public class PlayerHnadlerCarryingAIState : IPlayerHandlerState
     public void Update()
     {
         _probider.GetPlayerHnadlerLogicProvider().HandlerMove();
+
         if (_probider.GetPlayerHandlerApplicationProvider().GetApplication().GetInputCarryingAi())
         {
             _rayEventHub.RaiseOnAiRayFire(_tagetTransform);
             _probider.GetPlayerHnadlerLogicProvider().UpdateDrag();
             _rayEventHub.RaiseOnSeatRayFire(_probider.GetPlayerHnadlerLogicProvider().GetSeatTransform());
 
-        }
-        else
+			//カーソル切り替え
+			_probider.GetPlayerHandlerPresenter().SetSprite(_playerHandler.GetComponent<Image>(), 2);
+		}
+		else
         {
             _rayEventHub.RaiseOnAiRayFire(null);
             _rayEventHub.RaiseOnSeatRayFire(null);
             _playerHandler.TalkingtoAi();
-        }
+		}
 
-    }
+	}
 
 
     /// <summary>

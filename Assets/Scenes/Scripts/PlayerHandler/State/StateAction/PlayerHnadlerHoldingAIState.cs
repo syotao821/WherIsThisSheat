@@ -1,3 +1,5 @@
+﻿using UnityEngine.UI;
+
 /// <summary>
 /// お客さんを持った瞬間
 /// </summary>
@@ -19,13 +21,16 @@ public class PlayerHnadlerHoldingAIState : IPlayerHandlerState
     /// </summary>
     public void Entry()
     {
-    }
+		//カーソル切り替え
+		_probider.GetPlayerHandlerPresenter().SetSprite(_playerHandler.GetComponent<Image>(), 2);
+
+	}
 
 
-    /// <summary>
-    /// ステート中に何度も回る
-    /// </summary>
-    public void Update()
+	/// <summary>
+	/// ステート中に何度も回る
+	/// </summary>
+	public void Update()
     {
         _probider.GetPlayerHnadlerLogicProvider().HandlerMove();
 

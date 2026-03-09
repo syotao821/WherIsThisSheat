@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 public class PlayerHandlerPresenter 
 {
@@ -20,12 +20,16 @@ public class PlayerHandlerPresenter
 
     void SetSprite(Image _playerHandlerImage)
     {
-        _playerHandlerImage.sprite = _playerHandlerView.HandSprite;
+        _playerHandlerImage.sprite = _playerHandlerView.HandSprite[0];
     }
 
-    #region GetView
+	public void SetSprite(Image _playerHandlerImage,int _playerHandlerImageID)
+	{
+		_playerHandlerImage.sprite = _playerHandlerView.HandSprite[_playerHandlerImageID];
+	}
+	#region GetView
 
-    public Canvas GetCanvas()
+	public Canvas GetCanvas()
     {
         return _playerHandlerView.Canvas;
     }

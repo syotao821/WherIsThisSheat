@@ -658,7 +658,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u3058\u3087\u3046\u307B\u3046\n\u3042\u3042\u3042\u3042\u3042\u3042\n\u3042\u3042\u3042\u3042\u3042\n\u3042\u3042\u3042"
+  m_Text: "\u30DE\u30A6\u30B9\u30AB\u30FC\u30BD\u30EB\u3092\n\u304A\u5BA2\u3055\u3093\u306B\u8FD1\u3065\u3051\u308B\u3068\n\u60C5\u5831\u304C\u898B\u308C\u308B\u3088\n\n\u30C9\u30E9\u30C3\u30B0\u30A2\u30F3\u30C9\u30C9\u30ED\u30C3\u30D7\u3067\n\u304A\u5BA2\u3055\u3093\u3092\u904B\u3079\u308B\u3088"
 --- !u!1 &2226210560443447311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1444,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view:
-    _handSprite: {fileID: 21300000, guid: f0d24ec9a1d6c81478b442177eb03719, type: 3}
+    _handSprite:
+    - {fileID: 1338065646, guid: 5f2d964a41638e74398a0ab0bcf11da8, type: 3}
+    - {fileID: -272162715, guid: 5f2d964a41638e74398a0ab0bcf11da8, type: 3}
+    - {fileID: -1745366718, guid: 5f2d964a41638e74398a0ab0bcf11da8, type: 3}
+    - {fileID: 1246913009, guid: 5f2d964a41638e74398a0ab0bcf11da8, type: 3}
     _canvas: {fileID: 8356503476765110245}
 --- !u!95 &3795099910264463784
 Animator:
@@ -1707,7 +1711,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u306A\u307E\u3048"
+  m_Text: tips
 --- !u!1 &4807511930038622060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1804,7 @@ MonoBehaviour:
   resultManager: {fileID: 9110833511576241966}
   uiCharaInfomation: {fileID: 3371624878553803573}
   clearScoreValue: 3000
-  timeLimitValue: 0.5
+  timeLimitValue: 1000
 --- !u!1 &5414631750307855672
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,7 +2244,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f0d24ec9a1d6c81478b442177eb03719, type: 3}
+  m_Sprite: {fileID: -672917828, guid: 0893253a21e9c264cad1149d4b76466f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
