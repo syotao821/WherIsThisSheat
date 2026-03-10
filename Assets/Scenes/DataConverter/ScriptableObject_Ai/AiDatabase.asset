@@ -32,7 +32,7 @@ MonoBehaviour:
     - "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
     - "\u3046\u3046\u3046\u3046\u3046\u3046\u3046\u3046"
     - "\u3044\u3044\u3044\u3044\u3044\u3044\u3044\u3044\u3044\u3044"
-    _serviceBonusMoney: 1
+    _serviceBonusMoney: 3000
     _textSpeed: 1.3
   - _id: 2
     _name: Chara2
@@ -42,7 +42,7 @@ MonoBehaviour:
     _informationStringList:
     - "\u7A93\u969B\u304C\u826F\u3044"
     - "\u51FA\u53E3\u306B\u8FD1\u3044\u307B\u3046\u304C\u826F\u3044"
-    _serviceBonusMoney: 2
+    _serviceBonusMoney: 1500
     _textSpeed: 1.5
   - _id: 3
     _name: Chara3
