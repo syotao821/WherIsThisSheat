@@ -26,7 +26,7 @@ MonoBehaviour:
   - _id: 1
     _name: Chara1
     _viewModelName: M_Ai01
-    _pairSeatId: 0
+    _pairSeatId: 1
     _viewSpriteName: S_Ai01
     _informationStringList:
     - "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
@@ -37,7 +37,7 @@ MonoBehaviour:
   - _id: 2
     _name: Chara2
     _viewModelName: M_Ai02
-    _pairSeatId: 0
+    _pairSeatId: 2
     _viewSpriteName: S_Ai02
     _informationStringList:
     - "\u7A93\u969B\u304C\u826F\u3044"
@@ -47,7 +47,7 @@ MonoBehaviour:
   - _id: 3
     _name: Chara3
     _viewModelName: M_Ai03
-    _pairSeatId: 0
+    _pairSeatId: 3
     _viewSpriteName: S_Ai03
     _informationStringList:
     - 0
@@ -57,7 +57,7 @@ MonoBehaviour:
   - _id: 4
     _name: Chara4
     _viewModelName: M_Ai04
-    _pairSeatId: 0
+    _pairSeatId: 4
     _viewSpriteName: S_Ai04
     _informationStringList:
     - 0

@@ -6,6 +6,7 @@ public class AiNormalStateAction : IAiState
 	int _animNum=Random.Range(0,3);
     bool isSeatAnim = false;
 	bool isGathering = false;
+	bool isSatisfaction = false;
 	int myGrouID = -1;
 	Vector3 seatScale = new Vector3(0.7f, 0.7f, 0.7f);
 	public AiNormalStateAction(AiProvider provider)
@@ -39,6 +40,21 @@ public class AiNormalStateAction : IAiState
 		{
 			_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ResetParent();
 		};
+
+		//お客さんの満足度
+		//ドアが閉じたタイミングで満足度を更新するイベント発火
+		BusController.Instance.OnAiSatisfactionSet += () =>
+		 {
+			 if (!isSatisfaction)
+			 {
+				 if (UiManager.Instance.CheckAiGroup(myGrouID))
+				 {
+					 CheckSatisfaction();
+					 isSatisfaction = true;
+				 }
+			 }
+		 };
+
 	}
 
 	public void Update()
@@ -79,11 +95,7 @@ public class AiNormalStateAction : IAiState
                 _aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
 
                 _aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().localScale = seatScale;
-
-
             }
-
-
         }
 		else
 		{
@@ -103,14 +115,27 @@ public class AiNormalStateAction : IAiState
                 _aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().localScale = Vector3.one;
 
             }
-
-
         }
+
 
 
 	}
 
-    public void Exit()
+	void CheckSatisfaction()
+	{
+		if (_aiProvider.GetRuntimeData().IsCustomerSatisfied)
+		{
+			Debug.Log("満足している");
+			UiManager.Instance.busUiSlider.SetBusSlider(_aiProvider.GetAiData().ServiceBonusMoney);
+		}
+		else
+		{
+			Debug.Log("満足していない");
+		}
+	}
+
+
+	public void Exit()
     {
 		BusController.Instance.OnBussChildSet -= () => { };
 		BusController.Instance.OnBussResetChildSet -= () => { };

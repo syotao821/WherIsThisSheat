@@ -14,6 +14,12 @@ public class BusHassyaUiButton : MonoBehaviour
 		busController = FindFirstObjectByType<BusController>();
 		//発車ボタンが押されるたびに実行される
 		hassyaButton.onClick.AddListener(OnClickHassya);
+
+		//次のグループｽﾀｰﾄ
+		BusController.Instance.OnBussResetChildSet += () =>
+		{
+			UiManager.Instance.CountAiGroup();
+		};
 	}
 
 	/// <summary>
@@ -23,7 +29,5 @@ public class BusHassyaUiButton : MonoBehaviour
 	{
 		//ドア閉め→発車のアニメーション再生
 		busController.PlayBusAnimation(BusController.BUSANIMATION.CLOSEDOOR);
-
-		UiManager.Instance.CountAiGroup();
 	}
 }

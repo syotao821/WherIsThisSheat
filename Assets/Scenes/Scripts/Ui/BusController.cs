@@ -21,7 +21,7 @@ public class BusController : SingletonBehaviour<BusController>,IGameInit
 	public event Action OnBussChildSet;
 	public event Action OnBussResetChildSet;
 	public event Action OnBussTeisyaStartSet;
-
+	public event Action OnAiSatisfactionSet;//お客さんの満足度を更新するタイミングでイベント発火
 	public int InitOrder => 7;
 
 	void IGameInit.GameInit()
@@ -81,6 +81,14 @@ public class BusController : SingletonBehaviour<BusController>,IGameInit
 	public void SetDoorOpenInChild()
 	{
 		OnBussChildSet?.Invoke();
+	}
+
+	/// <summary>
+	/// ドアがクローズした後にイベントで登録する
+	/// </summary>
+	public void SetDoorClose()
+	{
+		OnAiSatisfactionSet?.Invoke();
 	}
 
 	/// <summary>

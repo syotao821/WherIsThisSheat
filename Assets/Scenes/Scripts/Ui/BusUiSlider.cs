@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,13 +44,19 @@ public class BusUiSlider : MonoBehaviour
 	public void SetBusSlider(int _addvValue)
     {
 		currentScore = (int)scoreSlider.value + _addvValue;
+
+		//スライダー更新
+		//scoreSlider.value = Mathf.InverseLerp(0, clearScore, currentScore);
+		scoreSlider.DOValue(Mathf.InverseLerp(0, clearScore, currentScore),1.0f)
+			.SetEase(Ease.Linear)
+			.SetLink(gameObject);
 	}
 
 	/// <summary>
 	/// スライダーの01でスコアも同期してテキストの金額が変わる
 	/// 0：０円　1：目標金額
 	/// </summary>
-    public void UpDateBusSlider(float _value)
+	public void UpDateBusSlider(float _value)
     {
 		if (isScoreOver) return;
 
@@ -58,7 +65,7 @@ public class BusUiSlider : MonoBehaviour
 		scoreText.text = currentScore.ToString("C");//円表示にしてくれる
 
 		//スライダー更新
-		scoreSlider.value = Mathf.InverseLerp(0, clearScore, currentScore);
+		//scoreSlider.value = Mathf.InverseLerp(0, clearScore, currentScore);
 
 		CheckBusSilider();
 	}
