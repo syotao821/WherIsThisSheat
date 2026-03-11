@@ -8,6 +8,7 @@ public class BusHassyaUiButton : MonoBehaviour
 {
 	Button hassyaButton;
 	BusController busController;
+	bool isClicked = false;
 	public void SetStart()
 	{
 		hassyaButton = GetComponent<Button>();
@@ -16,9 +17,15 @@ public class BusHassyaUiButton : MonoBehaviour
 		hassyaButton.onClick.AddListener(OnClickHassya);
 
 		//次のグループｽﾀｰﾄ
-		BusController.Instance.OnBussResetChildSet += () =>
+		BusController.Instance.OnBussHassyaAnimeEnd += () =>
 		{
 			UiManager.Instance.CountAiGroup();
+		};
+
+		BusController.Instance.OnBussDoorOpen += () =>
+		{
+			hassyaButton.interactable = true;
+			isClicked = false;
 		};
 	}
 
@@ -26,7 +33,15 @@ public class BusHassyaUiButton : MonoBehaviour
 	/// 発車ボタンが押されたとき
 	/// </summary>
 	public void OnClickHassya()
-	{
+	{      
+		if(isClicked) return;//二重クリック防止
+
+		hassyaButton.interactable = false;//ボタンを押せなくする
+		isClicked = true;
+
+		//SE再生
+		UiSound.Instance.Play(UiClips.Instance.audioClip[1]);
+
 		//ドア閉め→発車のアニメーション再生
 		busController.PlayBusAnimation(BusController.BUSANIMATION.CLOSEDOOR);
 	}

@@ -8,6 +8,8 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
+		BGMManager.Instance.PlayBGM(0);
+
 		fadeManager = FindFirstObjectByType<FadeManager>();
 		//スタートボタンが押されるたびに実行される
 		startButton.onClick.AddListener(OnClickStart);

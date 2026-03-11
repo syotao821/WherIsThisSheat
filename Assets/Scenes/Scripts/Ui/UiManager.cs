@@ -29,6 +29,7 @@ public class UiManager : SingletonBehaviour<UiManager>,IGameInit
 		busHassyaUiButton.SetStart();
 		resultManager.SetStart();
 		uiCharaInfomation.SetStart();
+		BGMManager.Instance.PlayBGM(1);
 
 		//目標金額に到達すると呼ばれる
 		busUiSlider.onScoreOver += () =>

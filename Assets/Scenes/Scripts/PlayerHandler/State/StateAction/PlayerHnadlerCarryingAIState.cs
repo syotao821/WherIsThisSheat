@@ -26,13 +26,15 @@ public class PlayerHnadlerCarryingAIState : IPlayerHandlerState
     {
         _tagetTransform = _probider.GetPlayerHnadlerLogicProvider().GetHitTransform();
         _probider.GetPlayerHnadlerLogicProvider().StartDrag(_tagetTransform);
-        
-    }
 
-    /// <summary>
-    /// ステート中に何度も回る
-    /// </summary>
-    public void Update()
+		//SE再生
+		PlayerSound.Instance.Play(PlayerClips.Instance.audioClip[0]);
+	}
+
+	/// <summary>
+	/// ステート中に何度も回る
+	/// </summary>
+	public void Update()
     {
         _probider.GetPlayerHnadlerLogicProvider().HandlerMove();
 

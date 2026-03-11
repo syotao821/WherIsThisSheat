@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class SeatBase:IDisposable
@@ -19,7 +19,7 @@ public class SeatBase:IDisposable
 
 		//バスが動いた瞬間のタイミングでイベント発火
 		//バスの子オブジェクトにセット
-		BusController.Instance.OnBussTeisyaStartSet += () =>
+		BusController.Instance.OnBussTeisyaAnimeStart += () =>
 		{
 			if (UiManager.Instance.CheckAiGroup(myGrouID))
 			{
@@ -29,7 +29,7 @@ public class SeatBase:IDisposable
 
 		//バスの発車して見えなくなったタイミングでイベント発火
 		//バスの子オブジェクトにセット
-		BusController.Instance.OnBussResetChildSet += () =>
+		BusController.Instance.OnBussHassyaAnimeEnd += () =>
 		{
 			_seatProvider.GetSeatLogickProvider().GetSeatLogickIntegration().ResetParent();
 		};
@@ -46,7 +46,7 @@ public class SeatBase:IDisposable
         _seatProvider.Dispose();
 
 		if(BusController.Instance != null)
-		BusController.Instance.OnBussResetChildSet -= () => { };
-		BusController.Instance.OnBussTeisyaStartSet -= () => { };
+		BusController.Instance.OnBussHassyaAnimeEnd -= () => { };
+		BusController.Instance.OnBussTeisyaAnimeStart -= () => { };
 	}
 }

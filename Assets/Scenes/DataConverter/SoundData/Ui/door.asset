@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa143c3675d6b9f45911ed2331a40689, type: 3}
-  m_Name: Ui
+  m_Name: door
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 3eeefc8b5ad9f2c4c8618abd64330d8d, type: 3}
   priority: 0

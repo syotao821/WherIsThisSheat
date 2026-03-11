@@ -25,11 +25,17 @@ public class ResultManager : MonoBehaviour
 		resultPanel.gameObject.SetActive(true);
 		if (_isClear)
 		{
+			//SE再生
+			UiSound.Instance.Play(UiClips.Instance.audioClip[2]);
+
 			resultBG[0].SetActive(true);
 			resultBG[1].SetActive(false);
 		}
 		else
 		{
+			//SE再生
+			UiSound.Instance.Play(UiClips.Instance.audioClip[3]);
+
 			resultBG[1].SetActive(true);
 			resultBG[0].SetActive(false);
 		}

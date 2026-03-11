@@ -45,6 +45,9 @@ public class BusUiSlider : MonoBehaviour
     {
 		currentScore = (int)scoreSlider.value + _addvValue;
 
+		//SE再生
+		UiSound.Instance.Play(UiClips.Instance.audioClip[0], isUnique: true);
+
 		//スライダー更新
 		//scoreSlider.value = Mathf.InverseLerp(0, clearScore, currentScore);
 		scoreSlider.DOValue(Mathf.InverseLerp(0, clearScore, currentScore),1.0f)

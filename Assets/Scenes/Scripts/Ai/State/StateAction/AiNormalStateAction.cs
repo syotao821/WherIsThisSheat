@@ -26,7 +26,7 @@ public class AiNormalStateAction : IAiState
 
 		//バスのドアが開き終わったタイミングでイベント発火
 		//バスの子オブジェクトにセット
-		BusController.Instance.OnBussChildSet += () =>
+		BusController.Instance.OnBussDoorOpen += () =>
 		{
 			if (UiManager.Instance.CheckAiGroup(myGrouID))
 			{
@@ -36,14 +36,14 @@ public class AiNormalStateAction : IAiState
 
 		//バスの発車して見えなくなったタイミングでイベント発火
 		//バスの子オブジェクトにセット
-		BusController.Instance.OnBussResetChildSet += () =>
+		BusController.Instance.OnBussHassyaAnimeEnd += () =>
 		{
 			_aiProvider.GetAiLogicProvider().GetAiLogickIntegration().ResetParent();
 		};
 
 		//お客さんの満足度
 		//ドアが閉じたタイミングで満足度を更新するイベント発火
-		BusController.Instance.OnAiSatisfactionSet += () =>
+		BusController.Instance.OnBussDoorClose += () =>
 		 {
 			 if (!isSatisfaction)
 			 {
@@ -95,8 +95,11 @@ public class AiNormalStateAction : IAiState
                 _aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
 
                 _aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().localScale = seatScale;
-            }
-        }
+
+				//SE再生
+				PlayerSound.Instance.Play(PlayerClips.Instance.audioClip[1]);
+			}
+		}
 		else
 		{
 
@@ -107,7 +110,7 @@ public class AiNormalStateAction : IAiState
                 _animNum = Random.Range(0, 3);
 
                 _aiProvider.GetApplicationProvider().GetApplication().GetAiTransform().eulerAngles = new Vector3(306, 180, 357);//カメラのほうを向くように回転
-
+																																//SE再生
 				//１回しか流れてほしくないからフラグで管理
 				isSeatAnim = true;
                 _aiProvider.GetApplicationProvider().GetApplication().SelectAnimationPlay(_animNum);
@@ -125,19 +128,22 @@ public class AiNormalStateAction : IAiState
 	{
 		if (_aiProvider.GetRuntimeData().IsCustomerSatisfied)
 		{
-			Debug.Log("満足している");
+			//Debug.Log("満足している");
 			UiManager.Instance.busUiSlider.SetBusSlider(_aiProvider.GetAiData().ServiceBonusMoney);
 		}
 		else
 		{
-			Debug.Log("満足していない");
+			//Debug.Log("満足していない");
+
+			//SE再生
+			UiSound.Instance.Play(UiClips.Instance.audioClip[4]);
 		}
 	}
 
 
 	public void Exit()
     {
-		BusController.Instance.OnBussChildSet -= () => { };
-		BusController.Instance.OnBussResetChildSet -= () => { };
+		BusController.Instance.OnBussDoorOpen -= () => { };
+		BusController.Instance.OnBussHassyaAnimeEnd -= () => { };
 	}
 }

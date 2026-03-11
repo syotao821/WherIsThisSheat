@@ -18,10 +18,10 @@ public class BusController : SingletonBehaviour<BusController>,IGameInit
 
 	BUSANIMATION bUSANIMATION = BUSANIMATION.NONE;
 	Animator animator;
-	public event Action OnBussChildSet;
-	public event Action OnBussResetChildSet;
-	public event Action OnBussTeisyaStartSet;
-	public event Action OnAiSatisfactionSet;//お客さんの満足度を更新するタイミングでイベント発火
+	public event Action OnBussDoorOpen;
+	public event Action OnBussHassyaAnimeEnd;
+	public event Action OnBussTeisyaAnimeStart;
+	public event Action OnBussDoorClose;//お客さんの満足度を更新するタイミングでイベント発火
 	public int InitOrder => 7;
 
 	void IGameInit.GameInit()
@@ -75,12 +75,17 @@ public class BusController : SingletonBehaviour<BusController>,IGameInit
 		return bUSANIMATION;
 	}
 
+	public void SetDoorOpenSE()
+	{
+		UiSound.Instance.Play(UiClips.Instance.audioClip[1]);
+	}
+
 	/// <summary>
 	/// ドアがオープンした後にイベントで登録する
 	/// </summary>
 	public void SetDoorOpenInChild()
 	{
-		OnBussChildSet?.Invoke();
+		OnBussDoorOpen?.Invoke();
 	}
 
 	/// <summary>
@@ -88,7 +93,7 @@ public class BusController : SingletonBehaviour<BusController>,IGameInit
 	/// </summary>
 	public void SetDoorClose()
 	{
-		OnAiSatisfactionSet?.Invoke();
+		OnBussDoorClose?.Invoke();
 	}
 
 	/// <summary>
@@ -96,7 +101,7 @@ public class BusController : SingletonBehaviour<BusController>,IGameInit
 	/// </summary>
 	public void SetHassyaResetChild()
 	{
-		OnBussResetChildSet?.Invoke();
+		OnBussHassyaAnimeEnd?.Invoke();
 	}
 
 	/// <summary>
@@ -104,6 +109,6 @@ public class BusController : SingletonBehaviour<BusController>,IGameInit
 	/// </summary>
 	public void SetTeisyaStart()
 	{
-		OnBussTeisyaStartSet?.Invoke();
+		OnBussTeisyaAnimeStart?.Invoke();
 	}
 }
